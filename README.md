@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,2,30&height=220&section=header&text=Options%20Trading%20Course&fontSize=54&fontColor=ffffff&animation=fadeIn&fontAlignY=36&desc=An%20interactive%20web%20app%20for%20learning%20options%20—%20modules,%20quizzes,%20chart%20challenges,%20XP%20%26%20badges&descAlignY=58&descSize=14" alt="Options Trading Course banner" />
+<img src="./.github/assets/banner.svg" alt="Options Trading Course" width="100%" />
 
 <br />
 
@@ -232,7 +232,7 @@ Released under the [MIT License](LICENSE) — free to use, modify, and share.
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,2,30&height=120&section=footer" alt="footer" />
+<img src="./.github/assets/footer.svg" alt="" width="100%" />
 
 <sub>Built with care for the next generation of curious traders.</sub>
 
