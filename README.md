@@ -33,15 +33,9 @@
   <img src="https://img.shields.io/badge/Framer_Motion-12-0055FF?style=for-the-badge&logo=framer&logoColor=white" alt="Framer Motion" />
 </p>
 
-<a href="https://vercel.com/new/clone?repository-url=https://github.com/Waleee7/options-trading-course">
-  <img src="https://vercel.com/button" alt="Deploy with Vercel" />
-</a>
-
 </div>
 
-<br />
-
-<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" width="100%" alt="divider" />
+---
 
 ## About
 
@@ -51,9 +45,8 @@ You don't just read about options. You progress through structured modules, take
 
 > Built as a learning tool for family and friends. Open-sourced because the best way to learn options is by *doing* — and the best way to remember is by teaching.
 
-<br />
 
-<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/solid.png" width="100%" alt="divider" />
+---
 
 ## Features
 
@@ -68,9 +61,8 @@ You don't just read about options. You progress through structured modules, take
 | **Light & dark themes** | Smooth animated theme toggle with system preference detection |
 | **Local-first progress** | Your progress saves to local storage — no account, no sign-up, no friction |
 
-<br />
 
-<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/solid.png" width="100%" alt="divider" />
+---
 
 ## Curriculum
 
@@ -98,9 +90,8 @@ You don't just read about options. You progress through structured modules, take
 </tr>
 </table>
 
-<br />
 
-<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/solid.png" width="100%" alt="divider" />
+---
 
 ## Tech Stack
 
@@ -120,9 +111,8 @@ You don't just read about options. You progress through structured modules, take
 | Icons | **Lucide React** | Crisp, consistent, tree-shakeable iconography |
 | Deploy | **Vercel** | Push-to-deploy, edge network, zero-config for Next.js |
 
-<br />
 
-<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/solid.png" width="100%" alt="divider" />
+---
 
 ## Preview
 
@@ -135,9 +125,8 @@ You don't just read about options. You progress through structured modules, take
 </p>
 -->
 
-<br />
 
-<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/solid.png" width="100%" alt="divider" />
+---
 
 ## Getting Started
 
@@ -166,9 +155,8 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 | `npm run start` | Run the production build locally |
 | `npm run lint` | Lint the codebase with ESLint |
 
-<br />
 
-<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/solid.png" width="100%" alt="divider" />
+---
 
 ## Project Structure
 
@@ -210,9 +198,8 @@ options-trading-course/
 └── package.json
 ```
 
-<br />
 
-<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/solid.png" width="100%" alt="divider" />
+---
 
 ## Roadmap
 
@@ -227,17 +214,15 @@ options-trading-course/
 - [ ] Multi-user leaderboards
 - [ ] Audio walkthroughs per module
 
-<br />
 
-<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/solid.png" width="100%" alt="divider" />
+---
 
 ## Disclaimer
 
 This project is for **educational purposes only**. Nothing in this app is financial advice. Options trading involves substantial risk of loss and is not suitable for all investors. Always consult a licensed financial advisor before making real trades.
 
-<br />
 
-<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/solid.png" width="100%" alt="divider" />
+---
 
 ## License
 
