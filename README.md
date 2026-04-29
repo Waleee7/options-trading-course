@@ -10,7 +10,19 @@
 
 <br /><br />
 
+<a href="https://optionstradingcourse.vercel.app/">
+  <img src="https://img.shields.io/badge/▶%20%20View%20Live%20Demo-optionstradingcourse.vercel.app-00d4ff?style=for-the-badge&labelColor=0a0e27&logo=vercel&logoColor=white" alt="Live Demo" height="40" />
+</a>
+
+<br /><br />
+
 <p>
+  <a href="https://optionstradingcourse.vercel.app/">
+    <img src="https://img.shields.io/website?url=https%3A%2F%2Foptionstradingcourse.vercel.app%2F&style=for-the-badge&logo=vercel&logoColor=white&label=site&up_color=22C55E&up_message=live&down_color=red&down_message=down&labelColor=302D41" alt="Site status" />
+  </a>
+  <a href="https://github.com/Waleee7/options-trading-course/actions/workflows/ci.yml">
+    <img src="https://img.shields.io/github/actions/workflow/status/Waleee7/options-trading-course/ci.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=CI&labelColor=302D41" alt="CI status" />
+  </a>
   <a href="https://github.com/Waleee7/options-trading-course/stargazers">
     <img src="https://img.shields.io/github/stars/Waleee7/options-trading-course?style=for-the-badge&logo=github&color=FFD700&logoColor=white&labelColor=302D41" alt="Stars" />
   </a>
@@ -116,7 +128,9 @@ You don't just read about options. You progress through structured modules, take
 
 ## Preview
 
-> Screenshots coming soon. The app features a trading-themed animated background, theme-aware UI, and motion-rich interactions throughout.
+**[▶ Try the live demo →](https://optionstradingcourse.vercel.app/)**
+
+The app features a trading-themed animated background, theme-aware UI, and motion-rich interactions throughout. Screenshots coming soon — for now, click around the live site.
 
 <!-- Drop screenshots here once you have them:
 <p align="center">
