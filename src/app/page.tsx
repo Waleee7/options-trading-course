@@ -76,7 +76,7 @@ export default function Home() {
           <h2 id="honest-h" className="display text-3xl">The honesty principle</h2>
           <div className="max-w-2xl text-lg leading-snug">
             <p>
-              No win rates, no returns, no screenshots of green accounts, no testimonials. The only statistics on this site are the two in the evidence ledger, with their sources. When I can document real results, they appear in a Receipts section with dates, unedited, losers included.
+              No win rates, no returns, no screenshots of green accounts, no testimonials. The only statistics on this site come from the two studies in the evidence ledger, with their sources. When I can document real results, they appear in a Receipts section with dates, unedited, losers included.
             </p>
             <Disclaimer className="mt-5 text-muted" />
           </div>
