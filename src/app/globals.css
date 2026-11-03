@@ -208,7 +208,7 @@ body {
 .lesson > .worked {
   max-width: var(--measure);
 }
-.lesson p {
+.lesson > p {
   margin-block: 1.1rem;
   font-size: 1.1875rem;
   line-height: 1.68;

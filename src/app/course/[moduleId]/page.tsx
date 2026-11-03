@@ -32,7 +32,7 @@ export default async function LessonPage({ params }: { params: Promise<{ moduleI
   const terms = m.terms.map((t) => glossary.find((g) => g.id === t)).filter((g) => !!g);
 
   return (
-    <div className="mx-auto grid max-w-6xl gap-10 px-4 pb-10 pt-8 sm:px-6 lg:grid-cols-[13rem_1fr] lg:gap-14 lg:pt-12">
+    <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)] gap-10 px-4 pb-10 pt-8 sm:px-6 lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-14 lg:pt-12">
       <aside className="lg:sticky lg:top-20 lg:self-start" aria-label="Where you are">
         <p className="mono text-5xl font-bold text-accent">{part.numeral}</p>
         <p className="label mt-1">{part.title}</p>

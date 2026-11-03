@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300" role="img" aria-labelledby="t d">
+  <title id="t">Options Lab: most people lose money trading options</title>
+  <desc id="d">Animated banner. A profit and loss curve for an iron condor is drawn while a marker moves along it.</desc>
+  <style>
+    .bg{fill:#14130f}
+    .rule{stroke:#34322a;stroke-width:1}
+    .zero{stroke:#f3f0e6;stroke-width:1.5}
+    .k{font:600 12px ui-monospace,Menlo,Consolas,monospace;letter-spacing:.14em;fill:#b4ae9a}
+    .h{font:800 47px Georgia,'Times New Roman',serif;fill:#f3f0e6;letter-spacing:-1.5px}
+    .h2{font:800 47px Georgia,'Times New Roman',serif;fill:#ff7350;letter-spacing:-1.5px}
+    .s{font:500 17px Georgia,'Times New Roman',serif;fill:#b4ae9a}
+    .m{font:600 12px ui-monospace,Menlo,Consolas,monospace;fill:#b4ae9a}
+    .exp{fill:none;stroke:#b4ae9a;stroke-width:2;stroke-dasharray:6 5}
+    .tod{fill:none;stroke:#f3f0e6;stroke-width:3;stroke-linejoin:round;stroke-dasharray:1200;stroke-dashoffset:1200;animation:draw 2.4s .5s ease-out forwards}
+    .l1{opacity:0;animation:rise .7s .1s ease-out forwards}
+    .l2{opacity:0;animation:rise .7s .35s ease-out forwards}
+    .l3{opacity:0;animation:rise .7s .6s ease-out forwards}
+    .gain{fill:#4fd694;opacity:.16}
+    .loss{fill:#ff7350;opacity:.16}
+    .dot{transform:translate(920.0px,118.5px);animation:ride 9s 3s ease-in-out infinite}
+    .ring{fill:#4fd694;stroke:#14130f;stroke-width:3}
+    .pulse{fill:none;stroke:#4fd694;stroke-width:2;opacity:0;animation:pulse 3s 3s ease-out infinite}
+    @keyframes draw{to{stroke-dashoffset:0}}
+    @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+    @keyframes ride{0%{transform:translate(920.0px,118.5px)}13%{transform:translate(890.0px,125.6px)}25%{transform:translate(860.0px,148.2px)}38%{transform:translate(890.0px,125.6px)}50%{transform:translate(920.0px,118.5px)}63%{transform:translate(950.0px,128.0px)}75%{transform:translate(980.0px,149.8px)}88%{transform:translate(950.0px,128.0px)}100%{transform:translate(920.0px,118.5px)}}
+    @keyframes pulse{0%{opacity:.8;r:7px}100%{opacity:0;r:22px}}
+    @media (prefers-reduced-motion: reduce){
+      .tod{animation:none;stroke-dashoffset:0}
+      .l1,.l2,.l3{animation:none;opacity:1}
+      .dot{animation:none}
+      .pulse{animation:none;opacity:0}
+    }
+  </style>
+  <rect class="bg" width="1200" height="300"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#ff7350"/>
+  <text class="k l1" x="60" y="62">OPTIONS / LAB  -  AN HONEST OPTIONS COURSE</text>
+  <text class="h l1" x="60" y="130">Most people lose money</text>
+  <text class="h2 l2" x="60" y="190">trading options.</text>
+  <text class="s l3" x="60" y="232">A free course that starts with the truth, then teaches you</text>
+  <text class="s l3" x="60" y="256">to price, size, and survive. Drag the payoff. Break the trade.</text>
+
+  <g>
+    <rect x="660" y="40" width="520" height="242" fill="none" stroke="#34322a" stroke-width="2"/>
+    <line class="rule" x1="700" x2="1140" y1="79.6" y2="79.6"/>
+    <line class="rule" x1="700" x2="1140" y1="208.2" y2="208.2"/>
+    <line class="zero" x1="700" x2="1140" y1="143.9" y2="143.9"/>
+    <text class="m" x="666" y="60">IRON CONDOR - MODEL P&amp;L</text>
+    <text class="m" x="666" y="272">price 78</text>
+    <text class="m" x="1100" y="272">122</text>
+    <path class="exp" d="M700.0,242.3 L705.0,242.3 L710.0,242.3 L715.0,242.3 L720.0,242.3 L725.0,242.3 L730.0,242.3 L735.0,242.3 L740.0,242.3 L745.0,242.3 L750.0,242.3 L755.0,242.3 L760.0,242.3 L765.0,242.3 L770.0,242.3 L775.0,242.3 L780.0,242.3 L785.0,242.3 L790.0,242.3 L795.0,242.3 L800.0,242.3 L805.0,242.3 L810.0,242.3 L815.0,242.3 L820.0,242.3 L825.0,226.2 L830.0,210.2 L835.0,194.1 L840.0,178.0 L845.0,161.9 L850.0,145.9 L855.0,129.8 L860.0,113.7 L865.0,97.7 L870.0,81.6 L875.0,81.6 L880.0,81.6 L885.0,81.6 L890.0,81.6 L895.0,81.6 L900.0,81.6 L905.0,81.6 L910.0,81.6 L915.0,81.6 L920.0,81.6 L925.0,81.6 L930.0,81.6 L935.0,81.6 L940.0,81.6 L945.0,81.6 L950.0,81.6 L955.0,81.6 L960.0,81.6 L965.0,81.6 L970.0,81.6 L975.0,97.7 L980.0,113.7 L985.0,129.8 L990.0,145.9 L995.0,161.9 L1000.0,178.0 L1005.0,194.1 L1010.0,210.2 L1015.0,226.2 L1020.0,242.3 L1025.0,242.3 L1030.0,242.3 L1035.0,242.3 L1040.0,242.3 L1045.0,242.3 L1050.0,242.3 L1055.0,242.3 L1060.0,242.3 L1065.0,242.3 L1070.0,242.3 L1075.0,242.3 L1080.0,242.3 L1085.0,242.3 L1090.0,242.3 L1095.0,242.3 L1100.0,242.3 L1105.0,242.3 L1110.0,242.3 L1115.0,242.3 L1120.0,242.3 L1125.0,242.3 L1130.0,242.3 L1135.0,242.3 L1140.0,242.3"/>
+    <path class="tod" d="M700.0,241.5 L705.0,241.3 L710.0,241.1 L715.0,240.8 L720.0,240.4 L725.0,239.9 L730.0,239.3 L735.0,238.5 L740.0,237.6 L745.0,236.6 L750.0,235.3 L755.0,233.8 L760.0,232.1 L765.0,230.1 L770.0,227.8 L775.0,225.2 L780.0,222.4 L785.0,219.2 L790.0,215.7 L795.0,212.0 L800.0,207.9 L805.0,203.6 L810.0,199.0 L815.0,194.3 L820.0,189.3 L825.0,184.2 L830.0,179.0 L835.0,173.7 L840.0,168.4 L845.0,163.2 L850.0,158.0 L855.0,153.0 L860.0,148.2 L865.0,143.6 L870.0,139.3 L875.0,135.3 L880.0,131.7 L885.0,128.4 L890.0,125.6 L895.0,123.3 L900.0,121.3 L905.0,119.9 L910.0,118.9 L915.0,118.5 L920.0,118.5 L925.0,119.0 L930.0,119.9 L935.0,121.3 L940.0,123.1 L945.0,125.4 L950.0,128.0 L955.0,130.9 L960.0,134.2 L965.0,137.8 L970.0,141.6 L975.0,145.6 L980.0,149.8 L985.0,154.1 L990.0,158.5 L995.0,163.0 L1000.0,167.5 L1005.0,172.1 L1010.0,176.5 L1015.0,180.9 L1020.0,185.3 L1025.0,189.5 L1030.0,193.5 L1035.0,197.4 L1040.0,201.2 L1045.0,204.7 L1050.0,208.1 L1055.0,211.3 L1060.0,214.3 L1065.0,217.1 L1070.0,219.6 L1075.0,222.0 L1080.0,224.2 L1085.0,226.2 L1090.0,228.1 L1095.0,229.7 L1100.0,231.2 L1105.0,232.6 L1110.0,233.8 L1115.0,234.9 L1120.0,235.8 L1125.0,236.7 L1130.0,237.4 L1135.0,238.1 L1140.0,238.6"/>
+    <g class="dot"><circle class="pulse" r="7"/><circle class="ring" r="7"/></g>
+  </g>
+</svg>

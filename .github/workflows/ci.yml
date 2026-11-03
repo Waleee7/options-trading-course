@@ -30,5 +30,8 @@ jobs:
       - name: Typecheck
         run: npx tsc --noEmit
 
+      - name: Unit tests (pricing, payoff, content integrity)
+        run: npm test
+
       - name: Build
         run: npm run build

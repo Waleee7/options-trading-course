@@ -1,253 +1,93 @@
-<div align="center">
+<p align="center"><img src="docs/hero.svg" alt="Options Lab: most people lose money trading options. A free, honest options course." width="100%"></p>
 
-<img src="./.github/assets/banner.svg" alt="Options Trading Course" width="100%" />
-
-<br />
-
-<a href="https://readme-typing-svg.demolab.com">
-  <img src="https://readme-typing-svg.demolab.com/?lines=Learn+options+trading+the+fun+way.;Modules.+Quizzes.+Chart+challenges.;Earn+XP.+Unlock+badges.+Master+the+greeks.&font=Fira%20Code&center=true&width=620&height=46&color=00d4ff&vCenter=true&pause=1000&size=22" alt="Typing animation" />
-</a>
-
-<br /><br />
-
-<a href="https://optionstradingcourse.vercel.app/">
-  <img src="https://img.shields.io/badge/▶%20%20View%20Live%20Demo-optionstradingcourse.vercel.app-00d4ff?style=for-the-badge&labelColor=0a0e27&logo=vercel&logoColor=white" alt="Live Demo" height="40" />
-</a>
-
-<br /><br />
-
-<p>
-  <a href="https://optionstradingcourse.vercel.app/">
-    <img src="https://img.shields.io/website?url=https%3A%2F%2Foptionstradingcourse.vercel.app%2F&style=for-the-badge&logo=vercel&logoColor=white&label=site&up_color=22C55E&up_message=live&down_color=red&down_message=down&labelColor=302D41" alt="Site status" />
-  </a>
-  <a href="https://github.com/Waleee7/options-trading-course/actions/workflows/ci.yml">
-    <img src="https://img.shields.io/github/actions/workflow/status/Waleee7/options-trading-course/ci.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=CI&labelColor=302D41" alt="CI status" />
-  </a>
-  <a href="https://github.com/Waleee7/options-trading-course/stargazers">
-    <img src="https://img.shields.io/github/stars/Waleee7/options-trading-course?style=for-the-badge&logo=github&color=FFD700&logoColor=white&labelColor=302D41" alt="Stars" />
-  </a>
-  <a href="https://github.com/Waleee7/options-trading-course/network/members">
-    <img src="https://img.shields.io/github/forks/Waleee7/options-trading-course?style=for-the-badge&logo=git&color=8B5CF6&logoColor=white&labelColor=302D41" alt="Forks" />
-  </a>
-  <a href="https://github.com/Waleee7/options-trading-course/issues">
-    <img src="https://img.shields.io/github/issues/Waleee7/options-trading-course?style=for-the-badge&logo=githubactions&color=22C55E&logoColor=white&labelColor=302D41" alt="Issues" />
-  </a>
-  <a href="https://github.com/Waleee7/options-trading-course/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/Waleee7/options-trading-course?style=for-the-badge&color=00D4FF&logoColor=white&labelColor=302D41" alt="License" />
-  </a>
+<p align="center">
+  <a href="https://optionstradingcourse.vercel.app"><img alt="live site" src="https://img.shields.io/badge/live-optionstradingcourse.vercel.app-14130f?style=flat-square"></a>
+  <img alt="tests" src="https://img.shields.io/badge/unit%20tests-pricing%20%2B%20payoff%20math-14130f?style=flat-square">
+  <img alt="Next.js 16" src="https://img.shields.io/badge/Next.js-16-14130f?style=flat-square">
+  <img alt="TypeScript strict" src="https://img.shields.io/badge/TypeScript-strict-14130f?style=flat-square">
 </p>
 
-<p>
-  <img src="https://img.shields.io/badge/Next.js-16-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js" />
-  <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" />
-  <img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/Tailwind-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind" />
-  <img src="https://img.shields.io/badge/Framer_Motion-12-0055FF?style=for-the-badge&logo=framer&logoColor=white" alt="Framer Motion" />
-</p>
+## In 20 seconds
 
-</div>
+**Options Lab is a free options course that opens with the truth: most people who trade options lose money.**
+Then it teaches you how options are priced, how to define your risk before you enter, and how to size so being wrong is survivable. Sixteen short modules, ten interactive payoff charts you can drag and break, a challenge mode scored by the pricing engine, and the exact checklist the author trades by.
 
----
-
-## About
-
-**Options Trading Course** is an interactive, gamified web app that teaches options trading from the ground up. It's designed for a wide audience — accessible enough for a curious 13-year-old, but never dumbed down for adults learning their first greek.
-
-You don't just read about options. You progress through structured modules, take a mini-quiz at the end of each one, then test your skills on real-chart challenges (AAPL, QQQ, SPY, TSLA). Along the way you earn XP, unlock badges, level up — every concept reinforced before moving to the next.
-
-> Built as a learning tool for family and friends. Open-sourced because the best way to learn options is by *doing* — and the best way to remember is by teaching.
-
-
----
-
-## Features
-
-| | |
-|---|---|
-| **Structured curriculum** | 13 progressive modules covering fundamentals → mechanics → the greeks → strategy |
-| **Mini-quizzes** | 3-4 question quiz after every module to lock in the concept before you move on |
-| **Chart challenges** | 4 real-chart scenarios (AAPL / QQQ / SPY / TSLA) — call or put, mark your entry, spot the reversal |
-| **Glossary** | Searchable in-app reference for every term introduced in the course |
-| **Gamified progression** | XP rewards, level-ups, badge unlocks, persistent progress, stats panel |
-| **Polished motion design** | Framer Motion page transitions, XP popups, cursor trail, news ticker, floating elements |
-| **Light & dark themes** | Smooth animated theme toggle with system preference detection |
-| **Local-first progress** | Your progress saves to local storage — no account, no sign-up, no friction |
-
-
----
-
-## Curriculum
+**Live:** https://optionstradingcourse.vercel.app
 
 <table>
-<tr><th>Track</th><th>Modules</th></tr>
-<tr>
-  <td><b>Fundamentals</b></td>
-  <td>What Is the Stock Market? · What Are Options?</td>
-</tr>
-<tr>
-  <td><b>Core Mechanics</b></td>
-  <td>Call Options Deep Dive · Put Options Deep Dive · Reading an Options Chain</td>
-</tr>
-<tr>
-  <td><b>The Greeks</b></td>
-  <td>Theta (Time Decay) · Delta (Directional Exposure) · Gamma (The Accelerator) · Vega (Volatility's Impact)</td>
-</tr>
-<tr>
-  <td><b>Strategy</b></td>
-  <td>Support &amp; Resistance Levels · Picking the Right Contracts · Common Beginner Mistakes · Intro to Spreads</td>
-</tr>
-<tr>
-  <td><b>Chart Challenges</b></td>
-  <td>Call or Put? (QQQ) · Spot the Level (SPY) · Earnings Play (AAPL) · The Reversal (TSLA)</td>
-</tr>
+  <tr>
+    <td><img src="docs/screenshot-desktop-home.png" alt="Options Lab home page on desktop: headline, evidence ledger with the two cited statistics, and navigation with the PremiumFloor link"></td>
+    <td width="240"><img src="docs/screenshot-mobile-home.png" alt="Options Lab home page on a phone"></td>
+  </tr>
+  <tr>
+    <td><img src="docs/screenshot-desktop-lab.png" alt="Strategy lab on desktop: an iron condor payoff chart with today and at-expiry curves, readouts, and sliders for price, days, and implied volatility"></td>
+    <td width="240"><img src="docs/screenshot-mobile-lesson.png" alt="A lesson on a phone: worked example ledgers in a serif and mono layout"></td>
+  </tr>
 </table>
 
+## What you will learn
 
----
+| Part | Modules |
+|---|---|
+| **00 The truth** | What the evidence says about people who trade options, and why options are unforgiving |
+| **I Mechanics** | Calls and puts, the 100x multiplier, intrinsic vs extrinsic value, moneyness, breakevens with worked examples, exercise and assignment, American vs European, bid/ask spread and liquidity |
+| **II The Greeks** | Delta and gamma, theta and vega with numbers, gamma risk into expiry and 0DTE realities |
+| **III Volatility** | Implied vs realized volatility, IV rank vs IV percentile, expected move, IV crush (why a correct call into earnings can still lose) |
+| **IV Defined-risk strategies** | Vertical spreads (debit and credit), covered calls, cash-secured puts, iron condors, each with an interactive payoff chart |
+| **V Risk and mind** | Position sizing and drawdown arithmetic, trade plans, journaling, revenge trading and overtrading |
+| **VI How I actually trade** | The scoring, firewall, and exit rules from my own options decision engine, presented as a process and not as a track record |
 
-## Tech Stack
+Also: a **strategy lab** with ten structures, a **challenge** of seven predict-then-check scenarios, a linked **glossary**, and light gamification (XP, ranks, marks) that stays out of the way. Progress lives only in your browser.
 
-<div align="center">
+## The honesty principle
 
-<img src="https://skillicons.dev/icons?i=nextjs,react,typescript,tailwind,vercel,git,github,vscode" alt="Tech stack icons" />
+- The only statistics on the site are two, cited with links: the [SEBI study](https://www.sebi.gov.in/media-and-notifications/press-releases/sep-2024/updated-sebi-study-reveals-93-of-individual-traders-incurred-losses-in-equity-fando-between-fy22-and-fy24-aggregate-losses-exceed-1-8-lakh-crores-over-three-years_86906.html) (93% of over 10 million individual equity F&O traders in India lost money, FY22 to FY24) and the [Chague, De-Losso & Giovannetti paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3423101) (97% of Brazilian mini-index futures day traders who persisted over 300 days lost money).
+- No win rates, returns, follower counts, or testimonials. Ever.
+- Every number in a worked example comes from the same unit-tested Black-Scholes engine that draws the charts. The challenge answers are checked against that engine in the test suite, so prose and math cannot drift apart.
+- A **Receipts** section exists for real, dated screenshots. It renders only when `src/data/receipts.ts` has entries, and it ships empty.
+- The "How I actually trade" module states plainly that the engine runs in paper and demo mode, and that nothing in it is evidence of a profitable edge.
 
-</div>
+> **Disclaimer.** Educational only. Not financial advice. Most traders lose money. Past results do not guarantee future results. Options are leveraged and you can lose your entire premium or more. Pricing models are simplifications; real fills, spreads, taxes, and fees will differ.
 
-| Layer | Choice | Why |
-|---|---|---|
-| Framework | **Next.js 16** (App Router, Turbopack) | Server-first React, file-based routing, blazing dev loop |
-| Language | **TypeScript 5** | Catches a class of bugs before the user ever sees them |
-| UI | **React 19** | Latest concurrent features, Suspense, transitions |
-| Styling | **Tailwind CSS 4** | Utility-first, zero-runtime, design-system-friendly |
-| Motion | **Framer Motion 12** | Page transitions, XP popups, micro-interactions |
-| Icons | **Lucide React** | Crisp, consistent, tree-shakeable iconography |
-| Deploy | **Vercel** | Push-to-deploy, edge network, zero-config for Next.js |
+## PremiumFloor
 
+I run **PremiumFloor**, where I share market analysis, options setups, education, and coaching built on the same process: **[Trade with Josh on PremiumFloor](https://whop.com/premiumfloor)**. It is optional, the course is complete without it, and there are no guarantees: most traders lose money.
 
----
-
-## Preview
-
-**[▶ Try the live demo →](https://optionstradingcourse.vercel.app/)**
-
-The app features a trading-themed animated background, theme-aware UI, and motion-rich interactions throughout. Screenshots coming soon — for now, click around the live site.
-
-<!-- Drop screenshots here once you have them:
-<p align="center">
-  <img src="public/screenshots/home.png" width="48%" alt="Home" />
-  <img src="public/screenshots/module.png" width="48%" alt="Module" />
-</p>
--->
-
-
----
-
-## Getting Started
-
-**Prerequisites:** Node.js 20+ and npm.
+## Quick start
 
 ```bash
-# 1. Clone
 git clone https://github.com/Waleee7/options-trading-course.git
 cd options-trading-course
-
-# 2. Install dependencies
 npm install
+npm run dev                         # http://localhost:3000
 
-# 3. Run the dev server
-npm run dev
+# production build, served on port 7312
+npm run build && npx next start -p 7312   # same as: npm run serve
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Checks:
 
-### Available scripts
-
-| Script | What it does |
-|---|---|
-| `npm run dev` | Start the Next.js dev server with Turbopack |
-| `npm run build` | Production build |
-| `npm run start` | Run the production build locally |
-| `npm run lint` | Lint the codebase with ESLint |
-
-
----
-
-## Project Structure
-
-```
-options-trading-course/
-├── public/                       # Static assets (chart images, backgrounds)
-├── src/
-│   ├── app/                      # Next.js App Router routes
-│   │   ├── page.tsx              # Landing / dashboard
-│   │   ├── course/               # Module pages
-│   │   ├── quiz/                 # Quiz pages
-│   │   ├── challenge/            # Chart challenge pages
-│   │   ├── glossary/             # Searchable glossary
-│   │   ├── complete/             # Completion / certificate screen
-│   │   ├── layout.tsx            # Root layout, providers
-│   │   └── globals.css           # Tailwind base styles
-│   ├── components/               # Reusable UI
-│   │   ├── ModuleCard.tsx
-│   │   ├── ProgressBar.tsx
-│   │   ├── BadgesPanel.tsx
-│   │   ├── StatsPanel.tsx
-│   │   ├── XpPopup.tsx
-│   │   ├── ThemeToggle.tsx
-│   │   ├── TradingBackground.tsx
-│   │   ├── CursorTrail.tsx
-│   │   ├── FloatingElements.tsx
-│   │   ├── NewsTicker.tsx
-│   │   └── ClientProviders.tsx
-│   ├── data/
-│   │   ├── modules.ts            # Course content (modules, quizzes, tips)
-│   │   └── glossary.ts           # Glossary terms
-│   ├── lib/
-│   │   ├── progress.ts           # XP, badges, persistence
-│   │   ├── theme.tsx             # Theme provider
-│   │   └── types.ts              # Shared type definitions
-│   └── hooks/                    # Custom React hooks
-├── next.config.ts
-├── tsconfig.json
-└── package.json
+```bash
+npm test            # Vitest: Black-Scholes, Greeks, strategy payoffs, content integrity
+npm run lint
+npm run typecheck
+npm run build
 ```
 
+## Under the hood
 
----
+- **Pricing engine** (`src/lib/options/blackScholes.ts`): Black-Scholes-Merton price, delta, gamma, theta, vega, rho, implied volatility by bisection, expected move. The normal CDF is Hart's double-precision algorithm. Tests check textbook values (including Hull's worked example), put-call parity across a grid, and every analytic Greek against finite differences.
+- **Strategy engine** (`src/lib/options/strategies.ts`): multi-leg positions, exact max profit, max loss, and breakevens (the expiry payoff is piecewise linear, so they are solved, not sampled), and ten presets used by both the prose and the charts.
+- **Interactive SVG charts** (`src/components/charts/`): hand-built, no chart library. Drag the handle or use arrow keys; sliders for price, days to expiry, and implied volatility. Model limits are stated on screen: flat IV, 4% rate, no dividends, theoretical mid prices, no fees.
+- **Content as data** (`src/data/`): modules, glossary, challenge scenarios, receipts. A test suite checks quiz structure, glossary links, the PremiumFloor placements, and guards against hype language.
+- **Identity**: "paper and terminal". A documentary-style serif reading layout with dark instrument panels for every chart. Newsreader plus JetBrains Mono, one vermilion accent, WCAG AA contrast, visible focus states, reduced motion respected.
 
-## Roadmap
+## Tech stack
 
-- [x] Core curriculum (13 modules) with quizzes
-- [x] Chart challenge mode (4 scenarios)
-- [x] XP, badges, persistent progress
-- [x] Light / dark theme
-- [ ] Glossary tooltips inline within modules
-- [ ] Strategy simulator — payoff diagrams for spreads, straddles, condors
-- [ ] Greeks playground — interactive sliders for delta / theta / vega
-- [ ] Real-time chart embed for live practice
-- [ ] Multi-user leaderboards
-- [ ] Audio walkthroughs per module
+Next.js 16 (App Router, static generation), React 19, TypeScript (strict), Tailwind CSS 4, Vitest. No runtime chart, animation, or icon libraries.
 
+## Credit
 
----
+Built by [Akinwale Dare](https://josh-dare.vercel.app).
 
-## Disclaimer
-
-This project is for **educational purposes only**. Nothing in this app is financial advice. Options trading involves substantial risk of loss and is not suitable for all investors. Always consult a licensed financial advisor before making real trades.
-
-
----
-
-## License
-
-Released under the [MIT License](LICENSE) — free to use, modify, and share.
-
-<br />
-
-<div align="center">
-
-<img src="./.github/assets/footer.svg" alt="" width="100%" />
-
-<sub>Built with care for the next generation of curious traders.</sub>
-
-</div>
+Licensed under the terms in [LICENSE](LICENSE).

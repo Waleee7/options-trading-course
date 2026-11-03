@@ -11,10 +11,10 @@ export default function Home() {
   return (
     <>
       <section className="mx-auto max-w-6xl px-4 pb-16 pt-10 sm:px-6 sm:pt-16">
-        <div className="grid gap-12 lg:grid-cols-[1.25fr_1fr] lg:items-start lg:gap-14">
+        <div className="grid gap-12 lg:grid-cols-[1.45fr_1fr] lg:items-start lg:gap-14">
           <div>
             <p className="label">Options Lab / an honest options course</p>
-            <h1 className="display mt-5 text-[clamp(3.1rem,9.5vw,7.5rem)]">
+            <h1 className="display mt-5 text-[clamp(2.9rem,8vw,5.75rem)]">
               Most people lose money <span className="text-accent">trading options.</span>
             </h1>
             <p className="mt-7 max-w-xl text-xl leading-snug sm:text-2xl">
