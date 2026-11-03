@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { JetBrains_Mono, Newsreader } from "next/font/google";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import TradingDesk from "@/components/TradingDesk";
+import CourseTape from "@/components/CourseTape";
 import { SITE_URL } from "@/data/site";
 import "./globals.css";
 
@@ -43,7 +45,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en" className={`${serif.variable} ${mono.variable}`}>
       <body>
         <a href="#main" className="skip-link">Skip to content</a>
+        <TradingDesk />
         <SiteHeader />
+        <CourseTape />
         <main id="main">{children}</main>
         <SiteFooter />
       </body>

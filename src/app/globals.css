@@ -57,7 +57,6 @@ body {
   font-size: 1.125rem;
   line-height: 1.6;
   color: var(--ink-2);
-  background: var(--paper);
   min-height: 100vh;
   font-optical-sizing: auto;
   text-rendering: optimizeLegibility;
@@ -414,4 +413,117 @@ input[type="range"].slider::-moz-range-thumb {
 input[type="range"].slider:focus-visible {
   outline: 2px solid var(--accent-bright);
   outline-offset: 2px;
+}
+
+/* ---------- trading-desk atmosphere (decorative, behind everything) ---------- */
+.desk {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  /* quiet toward the top where headlines live, a little livelier lower down */
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), #000 55%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), #000 55%);
+}
+.desk-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.045;
+}
+.desk-track {
+  position: absolute;
+  left: 0;
+  right: auto;
+  top: 8vh;
+  bottom: 0;
+  display: flex;
+  width: 3200px;
+  opacity: 0.075;
+  will-change: transform;
+  animation: desk-drift 240s linear infinite;
+}
+.desk-tile {
+  flex: none;
+  height: 100%;
+}
+.desk-glow {
+  position: absolute;
+  border-radius: 50%;
+  will-change: opacity;
+}
+.desk-glow-a {
+  width: 60vw;
+  height: 60vw;
+  left: -15vw;
+  top: -20vw;
+  background: radial-gradient(closest-side, rgba(255, 115, 80, 0.16), transparent);
+  animation: desk-glow 11s ease-in-out infinite alternate;
+}
+.desk-glow-b {
+  width: 55vw;
+  height: 55vw;
+  right: -15vw;
+  bottom: -22vw;
+  background: radial-gradient(closest-side, rgba(79, 214, 148, 0.16), transparent);
+  animation: desk-glow 14s 2s ease-in-out infinite alternate;
+}
+.desk-monitors {
+  display: none;
+}
+@media (min-width: 1280px) {
+  .desk-monitors {
+    display: block;
+  }
+  .desk-monitor {
+    position: absolute;
+    opacity: 0.085;
+  }
+  .desk-monitor-a {
+    right: 2vw;
+    bottom: 4vh;
+    transform: scale(1.1);
+    transform-origin: bottom right;
+  }
+  .desk-monitor-b {
+    right: calc(2vw + 340px);
+    bottom: 4vh;
+    opacity: 0.06;
+  }
+}
+@keyframes desk-drift {
+  to {
+    transform: translate3d(-1600px, 0, 0);
+  }
+}
+@keyframes desk-glow {
+  from {
+    opacity: 0.45;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .desk-track,
+  .desk-glow,
+  .tape-run {
+    animation: none !important;
+  }
+}
+
+/* ---------- course tape (optional ticker) ---------- */
+.tape-run {
+  display: flex;
+  width: max-content;
+  animation: tape 140s linear infinite;
+}
+.tape:hover .tape-run,
+.tape:focus-within .tape-run {
+  animation-play-state: paused;
+}
+@keyframes tape {
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
 }

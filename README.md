@@ -80,6 +80,7 @@ npm run build
 - **Strategy engine** (`src/lib/options/strategies.ts`): multi-leg positions, exact max profit, max loss, and breakevens (the expiry payoff is piecewise linear, so they are solved, not sampled), and ten presets used by both the prose and the charts.
 - **Interactive SVG charts** (`src/components/charts/`): hand-built, no chart library. Drag the handle or use arrow keys; sliders for price, days to expiry, and implied volatility. Model limits are stated on screen: flat IV, 4% rate, no dividends, theoretical mid prices, no fees.
 - **Content as data** (`src/data/`): modules, glossary, challenge scenarios, receipts. A test suite checks quiz structure, glossary links, the PremiumFloor placements, and guards against hype language.
+- **Trading-desk atmosphere**: a fixed, decorative CSS/SVG layer (drifting candlesticks and moving averages, monitor outlines, soft glows) at roughly 8% opacity behind the content, plus an optional course tape. Abstract on purpose, with no tickers, prices, or P&L. Only transform and opacity animate, and everything stops under `prefers-reduced-motion`.
 - **Identity**: "paper and terminal". A documentary-style serif reading layout with dark instrument panels for every chart. Newsreader plus JetBrains Mono, one vermilion accent, WCAG AA contrast, visible focus states, reduced motion respected.
 
 ## Tech stack
