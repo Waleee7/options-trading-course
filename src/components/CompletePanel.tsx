@@ -26,16 +26,16 @@ export default function CompletePanel() {
           : "Pick up where you left off. The order is deliberate: mechanics before Greeks, Greeks before strategies, risk before everything."}
       </p>
 
-      <div className="mt-10 grid gap-px border-2 border-ink bg-ink sm:grid-cols-4">
+      <div className="mt-10 grid gap-px border-2 border-line-strong bg-deep sm:grid-cols-4">
         {[
           ["Rank", rank.title],
           ["XP", `${p.totalXp}${next ? ` / ${next.minXp}` : ""}`],
           ["Challenge", `${right} / ${scenarios.length}`],
           ["Streak", `${p.currentStreak}d`],
         ].map(([k, v]) => (
-          <div key={k} className="bg-paper p-4">
+          <div key={k} className="bg-base p-4">
             <p className="label">{k}</p>
-            <p className="mono mt-1 text-2xl font-bold text-ink">{v}</p>
+            <p className="mono mt-1 text-2xl font-bold text-fg">{v}</p>
           </div>
         ))}
       </div>
@@ -63,20 +63,20 @@ export default function CompletePanel() {
         {BADGES.map((b) => {
           const on = b.check(p);
           return (
-            <li key={b.id} className="flex items-center gap-4 border-2 p-3" style={{ borderColor: on ? "var(--ink)" : "var(--rule)", opacity: on ? 1 : 0.7 }}>
-              <span className="mono grid h-12 w-12 flex-none place-items-center text-sm font-bold" style={{ background: on ? "var(--ink)" : "var(--paper-3)", color: on ? "var(--paper)" : "var(--muted)" }}>
+            <li key={b.id} className="flex items-center gap-4 border-2 p-3" style={{ borderColor: on ? "var(--accent)" : "var(--line)", opacity: on ? 1 : 0.7 }}>
+              <span className="mono grid h-12 w-12 flex-none place-items-center text-sm font-bold" style={{ background: on ? "var(--accent)" : "var(--raised)", color: on ? "var(--accent-ink)" : "var(--fg-muted)" }}>
                 {b.mark}
               </span>
               <span>
-                <span className="block font-serif text-lg font-bold leading-tight text-ink">{b.title}</span>
-                <span className="mono block text-xs text-muted">{on ? b.description : `Locked: ${b.description}`}</span>
+                <span className="block text-lg font-bold leading-tight text-fg">{b.title}</span>
+                <span className="mono block text-xs text-fg-muted">{on ? b.description : `Locked: ${b.description}`}</span>
               </span>
             </li>
           );
         })}
       </ul>
 
-      <div className="mt-14 flex flex-wrap items-center gap-3 border-t-2 border-ink pt-6">
+      <div className="mt-14 flex flex-wrap items-center gap-3 border-t-2 border-line-strong pt-6">
         <Link href="/lab" className="btn">Open the strategy lab →</Link>
         <Link href="/challenge" className="btn btn-ghost">Run the challenge</Link>
         {confirm ? (
@@ -88,7 +88,7 @@ export default function CompletePanel() {
           <button type="button" className="btn btn-ghost ml-auto" onClick={() => setConfirm(true)}>Reset progress</button>
         )}
       </div>
-      <p className="mono mt-4 text-xs text-muted">Progress is stored only in this browser. Nothing is sent anywhere.</p>
+      <p className="mono mt-4 text-xs text-fg-muted">Progress is stored only in this browser. Nothing is sent anywhere.</p>
     </div>
   );
 }

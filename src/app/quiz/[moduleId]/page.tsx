@@ -21,13 +21,15 @@ export default async function QuizPage({ params }: { params: Promise<{ moduleId:
   const m = modules.find((x) => x.id === moduleId);
   if (!m) notFound();
   return (
-    <div className="mx-auto max-w-3xl px-4 pb-10 pt-10 sm:px-6 sm:pt-16">
-      <p className="mono text-xs text-muted">
+    <div className="mx-auto max-w-3xl px-4 pb-10 pt-8 sm:px-6 sm:pt-12">
+      <div className="reading p-6 sm:p-10">
+      <p className="mono text-xs text-fg-muted">
         <Link href={`/course/${m.id}`} className="link">← {m.title}</Link>
       </p>
       <h1 className="label mt-6">Quiz / {m.title}</h1>
       <div className="mt-4">
         <Quiz module={m} />
+      </div>
       </div>
     </div>
   );

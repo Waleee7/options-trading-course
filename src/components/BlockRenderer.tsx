@@ -8,22 +8,21 @@ import SizingCalculator from "./SizingCalculator";
 import CopyTemplate from "./CopyTemplate";
 
 const TONE: Record<string, { label: string; cls: string }> = {
-  truth: { label: "The truth", cls: "bg-ink text-paper border-ink on-ink" },
-  warn: { label: "Warning", cls: "bg-paper border-accent" },
-  note: { label: "Note", cls: "bg-paper-2 border-ink" },
-  think: { label: "Think", cls: "bg-paper border-ink border-dashed" },
+  truth: { label: "The truth", cls: "bg-deep border-accent" },
+  warn: { label: "Warning", cls: "bg-raised border-accent" },
+  note: { label: "Note", cls: "bg-raised border-line-strong" },
+  think: { label: "Think", cls: "bg-deep border-line-strong border-dashed" },
 };
 
 function Callout({ b }: { b: Extract<Block, { t: "callout" }> }) {
   const t = TONE[b.tone];
-  const truth = b.tone === "truth";
   return (
-    <aside className={`callout my-9 border-2 border-l-[10px] p-5 ${t.cls}`}>
-      <p className="label" style={truth ? { color: "var(--accent-bright)" } : b.tone === "warn" ? { color: "var(--accent)" } : undefined}>
+    <aside className={`callout my-9 border border-l-[6px] p-5 ${t.cls}`}>
+      <p className="label" style={b.tone === "truth" || b.tone === "warn" ? { color: "var(--accent)" } : undefined}>
         {t.label}
         {b.title ? ` / ${b.title}` : ""}
       </p>
-      <p className="!my-2 !text-[1.0625rem] !leading-relaxed" style={truth ? { color: "var(--on-ink)" } : undefined}>
+      <p className="!my-2 !text-[1.125rem] !leading-relaxed text-fg">
         <RichText text={b.text} />
       </p>
     </aside>
@@ -59,9 +58,9 @@ export default function BlockRenderer({ blocks }: { blocks: Block[] }) {
             return <Callout key={i} b={b} />;
           case "formula":
             return (
-              <div key={i} className="formula my-8 border-y-2 border-ink py-4">
-                <p className="mono !my-0 !text-base font-semibold text-ink sm:!text-lg">{b.text}</p>
-                {b.note && <p className="mono !mb-0 !mt-2 !text-xs !leading-relaxed text-muted">{b.note}</p>}
+              <div key={i} className="formula my-8 border-y border-line-strong bg-deep px-4 py-4">
+                <p className="mono !my-0 !text-base font-semibold text-accent sm:!text-lg">{b.text}</p>
+                {b.note && <p className="mono !mb-0 !mt-2 !text-xs !leading-relaxed text-fg-muted">{b.note}</p>}
               </div>
             );
           case "table":
@@ -94,18 +93,18 @@ export default function BlockRenderer({ blocks }: { blocks: Block[] }) {
             );
           case "worked":
             return (
-              <section key={i} className="worked my-9 border-2 border-ink bg-paper-2" aria-label={b.title}>
-                <p className="label border-b-2 border-ink px-4 py-2" style={{ color: "var(--ink)" }}>{b.title}</p>
-                <dl className="mono divide-y divide-rule text-[13px]">
+              <section key={i} className="worked my-9 border border-line-strong bg-deep" aria-label={b.title}>
+                <p className="label border-b border-line-strong px-4 py-2" style={{ color: "var(--fg-muted)" }}>{b.title}</p>
+                <dl className="mono divide-y divide-line text-[13px]">
                   {b.rows.map(([k, v]) => (
                     <div key={k} className="grid gap-x-4 px-4 py-2.5 sm:grid-cols-[13rem_1fr]">
-                      <dt className="text-muted">{k}</dt>
-                      <dd className="font-semibold text-ink">{v}</dd>
+                      <dt className="text-fg-muted">{k}</dt>
+                      <dd className="font-semibold text-fg">{v}</dd>
                     </div>
                   ))}
                 </dl>
                 {b.result && (
-                  <p className="!my-0 border-t-2 border-ink bg-paper px-4 py-3 !text-base !leading-relaxed">
+                  <p className="!my-0 border-t border-line-strong bg-raised px-4 py-3 !text-base !leading-relaxed">
                     <RichText text={b.result} />
                   </p>
                 )}

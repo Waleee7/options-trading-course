@@ -47,12 +47,12 @@ export default function CourseTape() {
   const on = useSyncExternalStore(subscribe, read, () => true);
   const doubled = [...TAPE_ITEMS, ...TAPE_ITEMS];
   return (
-    <div className="tape border-b" style={{ borderColor: "var(--rule)", background: "rgba(233,229,216,0.7)" }} role="region" aria-label="Course tape">
+    <div className="tape border-b border-line bg-deep" role="region" aria-label="Course tape">
       <div className="mx-auto flex h-8 max-w-6xl items-center gap-3 px-4 sm:px-6">
-        <span className="mono flex-none bg-ink px-2 py-0.5 text-[10px] font-bold tracking-widest text-paper">TAPE</span>
+        <span className="mono flex-none bg-accent px-2 py-0.5 text-[10px] font-bold tracking-widest text-accent-ink">TAPE</span>
         {on ? (
           <div className="min-w-0 flex-1 overflow-hidden" aria-hidden>
-            <div className="tape-run mono text-[11px] text-muted">
+            <div className="tape-run mono text-[11px] text-fg-muted">
               {doubled.map((t, i) => (
                 <span key={i} className="whitespace-nowrap pr-8">
                   <span style={{ color: "var(--accent)" }}>/</span> {t}
@@ -61,13 +61,13 @@ export default function CourseTape() {
             </div>
           </div>
         ) : (
-          <span className="mono min-w-0 flex-1 truncate text-[11px] text-muted">Tape hidden</span>
+          <span className="mono min-w-0 flex-1 truncate text-[11px] text-fg-muted">Tape hidden</span>
         )}
         <button
           type="button"
           aria-pressed={on}
           onClick={() => set(!on)}
-          className="t100 mono flex-none border border-ink px-2 py-0.5 text-[10px] font-semibold text-ink hover:bg-ink hover:text-paper"
+          className="t100 mono flex-none border border-line-strong px-2 py-0.5 text-[10px] font-semibold text-fg hover:bg-raised"
         >
           {on ? "Hide tape" : "Show tape"}
         </button>

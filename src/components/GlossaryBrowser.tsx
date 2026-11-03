@@ -20,7 +20,7 @@ export default function GlossaryBrowser() {
   const cats = Object.keys(GLOSSARY_CATEGORIES) as GlossaryCategory[];
   return (
     <div>
-      <div className="grid gap-4 border-y-2 border-ink py-5 md:grid-cols-[20rem_1fr] md:items-end">
+      <div className="grid gap-4 border-y-2 border-line-strong py-5 md:grid-cols-[20rem_1fr] md:items-end">
         <div>
           <label htmlFor={uid} className="label">Search terms</label>
           <input
@@ -29,7 +29,7 @@ export default function GlossaryBrowser() {
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="theta, breakeven, assignment"
-            className="mono mt-1 w-full border-2 border-ink bg-paper px-3 py-2.5 text-base text-ink placeholder:text-muted"
+            className="mono mt-1 w-full border-2 border-line-strong bg-base px-3 py-2.5 text-base text-fg placeholder:text-fg-muted"
           />
         </div>
         <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by category">
@@ -39,20 +39,20 @@ export default function GlossaryBrowser() {
               type="button"
               aria-pressed={cat === c}
               onClick={() => setCat(c)}
-              className={`t100 mono border-2 border-ink px-3 py-2 text-xs font-semibold ${cat === c ? "bg-ink text-paper" : "text-ink hover:bg-paper-2"}`}
+              className={`t100 mono border-2 border-line-strong px-3 py-2 text-xs font-semibold ${cat === c ? "bg-accent text-accent-ink !border-accent" : "text-fg hover:bg-surface"}`}
             >
               {c === "all" ? "All" : GLOSSARY_CATEGORIES[c]}
             </button>
           ))}
         </div>
       </div>
-      <p className="mono mt-4 text-xs text-muted" role="status">{list.length} of {glossary.length} terms</p>
+      <p className="mono mt-4 text-xs text-fg-muted" role="status">{list.length} of {glossary.length} terms</p>
       <dl className="mt-2">
         {list.map((g) => (
-          <div key={g.id} className="grid gap-1 border-b border-rule py-4 md:grid-cols-[16rem_1fr_auto] md:gap-8">
-            <dt className="font-serif text-xl font-bold text-ink">
+          <div key={g.id} className="grid gap-1 border-b border-line py-4 md:grid-cols-[16rem_1fr_auto] md:gap-8">
+            <dt className="font-serif text-xl font-bold text-fg">
               {g.term}
-              <span className="mono ml-2 text-[10px] font-normal uppercase tracking-widest text-muted">{GLOSSARY_CATEGORIES[g.category]}</span>
+              <span className="mono ml-2 text-[10px] font-normal uppercase tracking-widest text-fg-muted">{GLOSSARY_CATEGORIES[g.category]}</span>
             </dt>
             <dd className="text-[17px] leading-snug">{g.definition}</dd>
             <dd>

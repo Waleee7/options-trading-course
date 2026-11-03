@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { EMPTY_PROGRESS, applyChallenge, applyQuiz } from "./progress";
-import { BADGES, getNextRank, getRank } from "./gamification";
+import { BADGES, getNextRank, getRank, nextModule } from "./gamification";
 import { modules } from "@/data/modules";
 
 const day = (s: string) => new Date(`${s}T12:00:00Z`);
@@ -65,5 +65,16 @@ describe("ranks and badges", () => {
     const full = BADGES.find((b) => b.id === "full-course")!;
     expect(full.check(EMPTY_PROGRESS)).toBe(false);
     expect(full.check({ ...EMPTY_PROGRESS, completedModules: modules.map((m) => m.id) })).toBe(true);
+  });
+});
+
+describe("nextModule", () => {
+  it("starts at the first module, then moves along, then ends", () => {
+    expect(nextModule(EMPTY_PROGRESS)?.id).toBe(modules[0].id);
+    expect(nextModule({ ...EMPTY_PROGRESS, completedModules: [modules[0].id] })?.id).toBe(modules[1].id);
+    expect(nextModule({ ...EMPTY_PROGRESS, completedModules: modules.map((m) => m.id) })).toBeNull();
+  });
+  it("returns the first gap even when later modules are done", () => {
+    expect(nextModule({ ...EMPTY_PROGRESS, completedModules: [modules[1].id, modules[2].id] })?.id).toBe(modules[0].id);
   });
 });

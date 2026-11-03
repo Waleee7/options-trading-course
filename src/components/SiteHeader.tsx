@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { PREMIUMFLOOR_URL } from "@/data/site";
+import SoundToggle from "./SoundToggle";
 
 const NAV = [
   { href: "/", label: "Course" },
@@ -25,8 +26,7 @@ export default function SiteHeader() {
         key={n.href}
         href={n.href}
         aria-current={active ? "page" : undefined}
-        className={`t100 mono whitespace-nowrap px-3 py-2 text-xs font-semibold ${active ? "bg-paper text-ink" : "hover:bg-ink-3"}`}
-        style={active ? undefined : { color: "var(--on-ink)" }}
+        className={`t100 mono whitespace-nowrap border-b-2 px-3 py-2.5 text-xs font-semibold ${active ? "border-accent bg-raised text-fg" : "border-transparent text-fg-2 hover:bg-raised hover:text-fg"}`}
       >
         {n.label}
       </Link>
@@ -35,32 +35,34 @@ export default function SiteHeader() {
 
   return (
     <>
-      <header className="on-ink sticky top-0 z-40 border-b-2" style={{ background: "var(--ink)", borderColor: "var(--ink)" }}>
+      <header className="sticky top-0 z-40 border-b border-line-strong bg-deep">
         <div className="mx-auto flex h-12 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
           <div className="flex items-center gap-6">
-            <Link href="/" className="mono text-sm font-bold tracking-tight text-paper">
-              OPTIONS<span style={{ color: "var(--accent-bright)" }}>/</span>LAB
+            <Link href="/" className="mono text-sm font-bold tracking-tight text-fg">
+              OPTIONS<span className="text-accent">/</span>LAB
             </Link>
             <nav aria-label="Primary" className="hidden items-center md:flex">
               {links}
             </nav>
           </div>
-          <a
-            href={PREMIUMFLOOR_URL}
-            target="_blank"
-            rel="noopener"
-            aria-label="Trade with Josh on PremiumFloor (opens in a new tab)"
-            className="t100 mono flex min-h-9 items-center gap-2 border-2 px-3 text-xs font-semibold text-paper hover:bg-paper hover:text-ink"
-            style={{ borderColor: "var(--accent-bright)" }}
-          >
-            <span className="hidden sm:inline">Trade with Josh</span>
-            <span aria-hidden className="hidden sm:inline" style={{ color: "var(--accent-bright)" }}>→</span>
-            <span>PremiumFloor</span>
-            <span aria-hidden className="sm:hidden" style={{ color: "var(--accent-bright)" }}>→</span>
-          </a>
+          <div className="flex items-center gap-2">
+            <SoundToggle />
+            <a
+              href={PREMIUMFLOOR_URL}
+              target="_blank"
+              rel="noopener"
+              aria-label="Trade with Josh on PremiumFloor (opens in a new tab)"
+              className="t100 mono flex min-h-9 items-center gap-2 border-2 border-accent px-3 text-xs font-bold text-accent hover:bg-accent hover:text-accent-ink"
+            >
+              <span className="hidden sm:inline">Trade with Josh</span>
+              <span aria-hidden className="hidden sm:inline">→</span>
+              <span>PremiumFloor</span>
+              <span aria-hidden className="sm:hidden">→</span>
+            </a>
+          </div>
         </div>
       </header>
-      <nav aria-label="Primary mobile" className="on-ink flex overflow-x-auto border-b-2 md:hidden" style={{ background: "var(--ink)", borderColor: "var(--ink)" }}>
+      <nav aria-label="Primary mobile" className="flex overflow-x-auto border-b border-line-strong bg-deep md:hidden">
         <div className="flex px-2">{links}</div>
       </nav>
     </>

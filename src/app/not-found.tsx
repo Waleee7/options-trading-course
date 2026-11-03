@@ -2,11 +2,13 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-24 sm:px-6">
+    <div className="mx-auto max-w-3xl px-4 pb-10 pt-8 sm:px-6 sm:pt-12">
+      <div className="reading p-6 sm:p-10">
       <p className="label">404</p>
       <h1 className="display mt-3 text-6xl">Nothing here.</h1>
       <p className="mt-4 text-xl">That page does not exist. The course does.</p>
       <Link href="/" className="btn mt-8">Back to the syllabus →</Link>
+      </div>
     </div>
   );
 }

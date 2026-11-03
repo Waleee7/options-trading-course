@@ -47,3 +47,8 @@ export const BADGES: Badge[] = [
   { id: "steady", title: "Steady", description: "Studied three days in a row", mark: "3D", check: (p) => p.currentStreak >= 3 },
   { id: "full-course", title: "Full course", description: "Completed all modules", mark: "OL", check: (p) => modules.every((m) => p.completedModules.includes(m.id)) },
 ];
+
+/** The first module the learner has not finished, or null when they have finished all of them. */
+export function nextModule(p: UserProgress) {
+  return modules.find((m) => !p.completedModules.includes(m.id)) ?? null;
+}

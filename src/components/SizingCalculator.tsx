@@ -19,11 +19,11 @@ export default function SizingCalculator() {
   const r = sizeTrade(account, riskPct, loss);
   const streak = Math.pow(1 - riskPct / 100, 10) * 100;
 
-  const field = "mono w-full border-2 border-paper bg-transparent px-3 py-2 text-base text-paper";
+  const field = "mono w-full border-2 border-fg bg-transparent px-3 py-2 text-base text-fg";
   return (
-    <section className="panel on-ink my-10 p-4 sm:p-6" aria-labelledby={`${uid}-t`}>
+    <section className="panel my-10 p-4 sm:p-6" aria-labelledby={`${uid}-t`}>
       <p className="label">Calculator</p>
-      <h4 id={`${uid}-t`} className="mt-1 font-mono text-base font-semibold text-paper">
+      <h4 id={`${uid}-t`} className="mt-1 font-mono text-base font-semibold text-fg">
         How many contracts fit your plan?
       </h4>
       <div className="mt-4 grid gap-4 sm:grid-cols-3">
@@ -40,23 +40,23 @@ export default function SizingCalculator() {
           <input className={field} type="number" inputMode="decimal" min={1} step={10} value={loss} onChange={(e) => setLoss(Math.max(0, Number(e.target.value)))} />
         </label>
       </div>
-      <dl className="mt-5 grid grid-cols-2 gap-px sm:grid-cols-4" style={{ background: "var(--ink-3)" }} aria-live="polite">
+      <dl className="mt-5 grid grid-cols-2 gap-px sm:grid-cols-4" style={{ background: "var(--line)" }} aria-live="polite">
         {[
           ["Risk budget", money(r.budget)],
           ["Contracts", String(r.contracts)],
           ["Dollars at risk", money(r.atRisk)],
           ["10 straight losses leave", `${streak.toFixed(1)}%`],
         ].map(([k, v]) => (
-          <div key={k} className="p-3" style={{ background: "var(--ink)" }}>
+          <div key={k} className="p-3" style={{ background: "var(--deep)" }}>
             <dt className="label">{k}</dt>
-            <dd className="mono mt-1 text-lg font-bold" style={{ color: k === "Contracts" && r.contracts === 0 ? "var(--accent-bright)" : "var(--on-ink)" }}>
+            <dd className="mono mt-1 text-lg font-bold" style={{ color: k === "Contracts" && r.contracts === 0 ? "var(--accent)" : "var(--fg)" }}>
               {v}
             </dd>
           </div>
         ))}
       </dl>
       {r.contracts === 0 && loss > 0 && (
-        <p className="mono mt-4 text-sm" style={{ color: "var(--accent-bright)" }}>
+        <p className="mono mt-4 text-sm" style={{ color: "var(--accent)" }}>
           Zero contracts fit. The trade is too large for this plan. Narrow it, or skip it. Do not round up.
         </p>
       )}

@@ -26,7 +26,7 @@ export default function LabClient() {
                     type="button"
                     aria-pressed={id === x}
                     onClick={() => setId(x)}
-                    className={`t100 mono w-full border-2 border-ink px-2 py-2 text-left text-[11px] font-semibold sm:px-3 sm:text-xs ${id === x ? "bg-ink text-paper" : "text-ink hover:bg-paper-2"}`}
+                    className={`t100 mono w-full border-2 border-line-strong px-2 py-2 text-left text-[11px] font-semibold sm:px-3 sm:text-xs ${id === x ? "bg-accent text-accent-ink !border-accent" : "text-fg hover:bg-surface"}`}
                   >
                     {PRESETS[x].name}
                   </button>

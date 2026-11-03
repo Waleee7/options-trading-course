@@ -15,7 +15,7 @@ interface Props {
   caption?: string;
 }
 
-const COLORS = ["#f3f0e6", "#ff7350", "#4fd694", "#b4ae9a"];
+const COLORS = ["#eef1f5", "#ff5c61", "#2fd27d", "#94a0af"];
 const DASH = ["", "", "", "5 3"];
 const M = { l: 56, r: 14, t: 14, b: 30 };
 const N = 161;
@@ -71,9 +71,9 @@ export default function GreeksExplorer({ S0, sigma: sigma0, dtes, focus = "delta
   const yFmt = (t: number) => (which === "theta" || which === "vega" ? money(t) : which === "gamma" ? t.toFixed(2) : t.toFixed(1));
 
   return (
-    <figure className="panel on-ink my-10 p-4 sm:p-6" aria-labelledby={`${uid}-t`}>
+    <figure className="panel my-10 p-4 sm:p-6" aria-labelledby={`${uid}-t`}>
       <p className="label">Interactive Greeks - Black-Scholes</p>
-      <h4 id={`${uid}-t`} className="mt-1 font-mono text-base font-semibold text-paper">
+      <h4 id={`${uid}-t`} className="mt-1 font-mono text-base font-semibold text-fg">
         {m.name} of a {S0} strike {kind}, versus the underlying
       </h4>
 
@@ -84,21 +84,21 @@ export default function GreeksExplorer({ S0, sigma: sigma0, dtes, focus = "delta
             type="button"
             aria-pressed={which === k}
             onClick={() => setWhich(k)}
-            className={`t100 border-2 px-3 py-2 font-mono text-xs font-semibold ${which === k ? "border-paper bg-paper text-ink" : "border-ink-3 text-paper hover:border-paper"}`}
-            style={which === k ? undefined : { borderColor: "var(--ink-3)" }}
+            className={`t100 border-2 px-3 py-2 font-mono text-xs font-semibold ${which === k ? "border-fg bg-base text-fg" : "border-line text-fg hover:border-fg"}`}
+            style={which === k ? undefined : { borderColor: "var(--line)" }}
           >
             {META[k].name}
           </button>
         ))}
-        <span className="mx-1 hidden w-px bg-ink-3 sm:block" style={{ background: "var(--ink-3)" }} />
+        <span className="mx-1 hidden w-px bg-line sm:block" style={{ background: "var(--line)" }} />
         {(["call", "put"] as OptionKind[]).map((k) => (
           <button
             key={k}
             type="button"
             aria-pressed={kind === k}
             onClick={() => setKind(k)}
-            className={`t100 border-2 px-3 py-2 font-mono text-xs font-semibold ${kind === k ? "border-paper bg-paper text-ink" : "border-ink-3 text-paper hover:border-paper"}`}
-            style={kind === k ? undefined : { borderColor: "var(--ink-3)" }}
+            className={`t100 border-2 px-3 py-2 font-mono text-xs font-semibold ${kind === k ? "border-fg bg-base text-fg" : "border-line text-fg hover:border-fg"}`}
+            style={kind === k ? undefined : { borderColor: "var(--line)" }}
           >
             {k === "call" ? "Call" : "Put"}
           </button>
@@ -109,18 +109,18 @@ export default function GreeksExplorer({ S0, sigma: sigma0, dtes, focus = "delta
         <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} role="img" aria-label={`${m.name} versus underlying price for expiries ${dtes.map(dteLabel).join(", ")}`} className="block max-w-full">
           {yTicks.map((t) => (
             <g key={t}>
-              <line x1={M.l} x2={w - M.r} y1={y(t)} y2={y(t)} stroke="#34322a" />
-              <text x={M.l - 8} y={y(t) + 4} textAnchor="end" fontSize={11} fill="#b4ae9a" fontFamily="var(--font-mono)">
+              <line x1={M.l} x2={w - M.r} y1={y(t)} y2={y(t)} stroke="#28313c" />
+              <text x={M.l - 8} y={y(t) + 4} textAnchor="end" fontSize={11} fill="#94a0af" fontFamily="var(--font-mono)">
                 {yFmt(t)}
               </text>
             </g>
           ))}
           {xTicks.map((t) => (
-            <text key={t} x={x(t)} y={h - 9} textAnchor="middle" fontSize={11} fill="#b4ae9a" fontFamily="var(--font-mono)">
+            <text key={t} x={x(t)} y={h - 9} textAnchor="middle" fontSize={11} fill="#94a0af" fontFamily="var(--font-mono)">
               {Math.round(t * 10) / 10}
             </text>
           ))}
-          <line x1={x(S0)} x2={x(S0)} y1={M.t} y2={h - M.b} stroke="#b4ae9a" strokeDasharray="2 4" />
+          <line x1={x(S0)} x2={x(S0)} y1={M.t} y2={h - M.b} stroke="#94a0af" strokeDasharray="2 4" />
           {curves.map((c, i) => (
             <path
               key={dtes[i]}
@@ -132,11 +132,11 @@ export default function GreeksExplorer({ S0, sigma: sigma0, dtes, focus = "delta
               strokeLinejoin="round"
             />
           ))}
-          <line x1={x(S)} x2={x(S)} y1={M.t} y2={h - M.b} stroke="#f3f0e6" strokeWidth={1} />
+          <line x1={x(S)} x2={x(S)} y1={M.t} y2={h - M.b} stroke="#eef1f5" strokeWidth={1} />
         </svg>
       </div>
 
-      <div className="mt-2 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[11px]" style={{ color: "var(--on-ink-muted)" }}>
+      <div className="mt-2 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[11px]" style={{ color: "var(--fg-muted)" }}>
         {dtes.map((d, i) => (
           <span key={d}>
             <svg width="22" height="8" aria-hidden className="inline align-middle">
@@ -148,9 +148,9 @@ export default function GreeksExplorer({ S0, sigma: sigma0, dtes, focus = "delta
         <span>{m.unit}</span>
       </div>
 
-      <div className="mt-5 grid grid-cols-2 gap-px sm:grid-cols-4" style={{ background: "var(--ink-3)" }}>
+      <div className="mt-5 grid grid-cols-2 gap-px sm:grid-cols-4" style={{ background: "var(--line)" }}>
         {dtes.map((d, i) => (
-          <div key={d} className="p-3" style={{ background: "var(--ink)" }}>
+          <div key={d} className="p-3" style={{ background: "var(--deep)" }}>
             <p className="label">at {S.toFixed(1)} - {dteLabel(d)}</p>
             <p className="mt-1 font-mono text-lg font-bold" style={{ color: COLORS[i % COLORS.length] }}>
               {m.fmt(val(S, d, which))}
@@ -163,21 +163,21 @@ export default function GreeksExplorer({ S0, sigma: sigma0, dtes, focus = "delta
         <div>
           <div className="flex items-baseline justify-between font-mono">
             <label htmlFor={`${uid}-s`} className="label">Underlying price</label>
-            <span className="text-sm font-semibold text-paper">${S.toFixed(1)}</span>
+            <span className="text-sm font-semibold text-fg">${S.toFixed(1)}</span>
           </div>
           <input id={`${uid}-s`} className="slider" type="range" min={lo} max={hi} step={S0 >= 200 ? 0.25 : 0.1} value={S} onChange={(e) => setS(Number(e.target.value))} />
         </div>
         <div>
           <div className="flex items-baseline justify-between font-mono">
             <label htmlFor={`${uid}-v`} className="label">Implied volatility</label>
-            <span className="text-sm font-semibold text-paper">{Math.round(sigma * 100)}%</span>
+            <span className="text-sm font-semibold text-fg">{Math.round(sigma * 100)}%</span>
           </div>
           <input id={`${uid}-v`} className="slider" type="range" min={0.05} max={1.2} step={0.01} value={sigma} onChange={(e) => setSigma(Number(e.target.value))} />
         </div>
       </div>
 
       {caption ? (
-        <figcaption className="mt-5 border-t pt-4 font-serif text-[15px] leading-relaxed" style={{ borderColor: "var(--ink-3)", color: "var(--on-ink-muted)" }}>
+        <figcaption className="mt-5 border-t pt-4 text-[15px] leading-relaxed" style={{ borderColor: "var(--line)", color: "var(--fg-muted)" }}>
           {caption}
         </figcaption>
       ) : null}

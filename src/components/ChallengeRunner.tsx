@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { OUTCOME_LABEL, classify, scenarioPnL, scenarios, type Outcome } from "@/data/challenges";
 import { recordChallenge, useProgress } from "@/lib/progress";
+import { feedback } from "@/lib/feedback";
 import PayoffExplorer from "./charts/PayoffExplorer";
 import { money } from "./charts/scale";
 
@@ -23,7 +24,7 @@ export default function ChallengeRunner() {
       <div className="reveal">
         <p className="label">Challenge complete</p>
         <p className="display mt-2 text-6xl">{score}/{scenarios.length}</p>
-        <p className="mono mt-3 text-sm text-muted">
+        <p className="mono mt-3 text-sm text-fg-muted">
           Total XP so far: {progress.totalXp}. Scenarios are scored by the same pricing engine as the charts, not by opinion.
         </p>
         <button type="button" className="btn mt-6" onClick={() => { setI(0); setPicked(null); setScore(0); setGained(0); }}>
@@ -40,7 +41,10 @@ export default function ChallengeRunner() {
   const choose = (o: Outcome) => {
     if (picked) return;
     setPicked(o);
+    feedback("select");
+    setTimeout(() => feedback(o === actual ? "correct" : "wrong"), 90);
     const g = recordChallenge(s.id, o === actual, s.xp);
+    if (g > 0) setTimeout(() => feedback("xp"), 420);
     setGained(g);
     if (o === actual) setScore((x) => x + 1);
   };
@@ -49,20 +53,20 @@ export default function ChallengeRunner() {
     <article key={s.id}>
       <div className="flex items-center justify-between">
         <p className="label">Scenario {i + 1} of {scenarios.length}</p>
-        <p className="mono text-xs text-muted">{s.xp} XP</p>
+        <p className="mono text-xs text-fg-muted">{s.xp} XP</p>
       </div>
       <h2 className="display mt-3 text-4xl sm:text-5xl">{s.title}</h2>
-      <dl className="mt-6 grid gap-px border-2 border-ink bg-ink sm:grid-cols-2">
-        <div className="bg-paper p-4">
+      <dl className="mt-6 grid gap-px border-2 border-line-strong bg-deep sm:grid-cols-2">
+        <div className="bg-base p-4">
           <dt className="label">What you did</dt>
           <dd className="mt-1 text-[17px] leading-snug">{s.setup}</dd>
         </div>
-        <div className="bg-paper p-4">
+        <div className="bg-base p-4">
           <dt className="label">What happened</dt>
           <dd className="mt-1 text-[17px] leading-snug">{s.event}</dd>
         </div>
       </dl>
-      <h3 className="mt-8 font-serif text-2xl font-bold text-ink">{s.question}</h3>
+      <h3 className="mt-8 text-2xl font-bold text-fg">{s.question}</h3>
       <div role="radiogroup" aria-label="Your prediction" className="mt-4 grid gap-3 sm:grid-cols-3">
         {ORDER.map((o) => {
           const state = !picked ? "idle" : o === actual ? "right" : o === picked ? "wrong" : "dim";
@@ -76,9 +80,9 @@ export default function ChallengeRunner() {
               onClick={() => choose(o)}
               className="t100 border-2 px-4 py-4 text-left font-mono text-sm font-semibold disabled:cursor-default"
               style={{
-                borderColor: state === "right" ? "var(--gain)" : state === "wrong" ? "var(--accent)" : "var(--ink)",
-                background: state === "right" ? "var(--gain)" : state === "wrong" ? "var(--accent)" : "transparent",
-                color: state === "right" || state === "wrong" ? "var(--paper)" : state === "dim" ? "var(--muted)" : "var(--ink)",
+                borderColor: state === "right" ? "var(--gain)" : state === "wrong" ? "var(--loss)" : "var(--line-strong)",
+                background: state === "right" ? "var(--gain)" : state === "wrong" ? "var(--loss)" : "transparent",
+                color: state === "right" || state === "wrong" ? "#08110c" : state === "dim" ? "var(--fg-muted)" : "var(--fg)",
               }}
             >
               {OUTCOME_LABEL[o]}
@@ -89,7 +93,7 @@ export default function ChallengeRunner() {
 
       {picked && (
         <div className="reveal mt-8" role="status">
-          <p className="mono text-sm font-bold" style={{ color: right ? "var(--gain)" : "var(--accent)" }}>
+          <p className="mono text-sm font-bold" style={{ color: right ? "var(--gain)" : "var(--loss)" }}>
             {right ? `CORRECT${gained ? ` +${gained} XP` : ""}` : "NOT QUITE"} - model P&amp;L per contract: {money(pnl, { sign: true })}
           </p>
           <p className="mt-2 max-w-2xl text-lg leading-snug">{s.explanation}</p>

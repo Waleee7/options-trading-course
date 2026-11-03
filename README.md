@@ -80,8 +80,10 @@ npm run build
 - **Strategy engine** (`src/lib/options/strategies.ts`): multi-leg positions, exact max profit, max loss, and breakevens (the expiry payoff is piecewise linear, so they are solved, not sampled), and ten presets used by both the prose and the charts.
 - **Interactive SVG charts** (`src/components/charts/`): hand-built, no chart library. Drag the handle or use arrow keys; sliders for price, days to expiry, and implied volatility. Model limits are stated on screen: flat IV, 4% rate, no dividends, theoretical mid prices, no fees.
 - **Content as data** (`src/data/`): modules, glossary, challenge scenarios, receipts. A test suite checks quiz structure, glossary links, the PremiumFloor placements, and guards against hype language.
-- **Trading-desk atmosphere**: a fixed, decorative CSS/SVG layer (drifting candlesticks and moving averages, monitor outlines, soft glows) at roughly 8% opacity behind the content, plus an optional course tape. Abstract on purpose, with no tickers, prices, or P&L. Only transform and opacity animate, and everything stops under `prefers-reduced-motion`.
-- **Identity**: "paper and terminal". A documentary-style serif reading layout with dark instrument panels for every chart. Newsreader plus JetBrains Mono, one vermilion accent, WCAG AA contrast, visible focus states, reduced motion respected.
+- **The desk (visual identity)**: a graphite trading-desk workspace. Visible, abstract chart panels are design elements: candlesticks with volume, an order-book-style ladder, and a Greeks gauge. They are labelled illustrative, the shapes are seeded, and the only numbers on them are Greeks computed by the course's own engine. Lessons sit on lighter, high-contrast reading panels. Green and red mean P&L and direction only; one amber accent carries the brand and calls to action. Schibsted Grotesk for text, JetBrains Mono for numbers.
+- **Motion**: charts draw in, candles tick, numbers count up, progress bars fill. CSS and SVG only, no canvas loops, and all of it stops under `prefers-reduced-motion`.
+- **Feedback**: soft haptics (`navigator.vibrate`) and very quiet WebAudio ticks on answer select, correct and wrong, XP gain, and module complete. One mute toggle in the header, remembered in `localStorage`.
+- **Learner path**: a "Continue" button and an Up next strip that always point at the first unfinished lesson, a 16-step path bar on every lesson, a scroll-linked reading bar, and a quiz after each module. An optional "course tape" carries course reminders only, with no prices.
 
 ## Tech stack
 

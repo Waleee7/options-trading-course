@@ -1,17 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { JetBrains_Mono, Newsreader } from "next/font/google";
+import { JetBrains_Mono, Schibsted_Grotesk } from "next/font/google";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import TradingDesk from "@/components/TradingDesk";
+import DeskBackdrop from "@/components/DeskBackdrop";
 import CourseTape from "@/components/CourseTape";
 import { SITE_URL } from "@/data/site";
 import "./globals.css";
 
-const serif = Newsreader({
+const grotesk = Schibsted_Grotesk({
   subsets: ["latin"],
-  variable: "--font-newsreader",
-  style: ["normal", "italic"],
-  axes: ["opsz"],
+  variable: "--font-schibsted",
   display: "swap",
 });
 
@@ -35,17 +33,17 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#14130f",
+  themeColor: "#090c10",
   width: "device-width",
   initialScale: 1,
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${serif.variable} ${mono.variable}`}>
+    <html lang="en" className={`${grotesk.variable} ${mono.variable}`}>
       <body>
         <a href="#main" className="skip-link">Skip to content</a>
-        <TradingDesk />
+        <DeskBackdrop />
         <SiteHeader />
         <CourseTape />
         <main id="main">{children}</main>

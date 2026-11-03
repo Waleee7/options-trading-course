@@ -105,15 +105,15 @@ export default function PayoffExplorer({ preset, caption, start }: Props) {
   const label = `${p.name}. Price ${S.toFixed(2)}, ${days} days left, IV ${Math.round(sigma * 100)} percent. Profit and loss now ${money(pnlNow)}. At expiry ${money(pnlExpiry)}.`;
 
   return (
-    <figure className="panel on-ink my-10 p-4 sm:p-6" aria-labelledby={`${uid}-t`}>
+    <figure className="panel my-10 p-4 sm:p-6" aria-labelledby={`${uid}-t`}>
       <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
         <div>
           <p className="label">Interactive payoff - Black-Scholes</p>
-          <h4 id={`${uid}-t`} className="mt-1 font-mono text-base font-semibold text-paper">
+          <h4 id={`${uid}-t`} className="mt-1 font-mono text-base font-semibold text-fg">
             {p.name}
           </h4>
         </div>
-        <ul className="font-mono text-xs text-on-ink-muted" style={{ color: "var(--on-ink-muted)" }}>
+        <ul className="font-mono text-xs text-fg-muted" style={{ color: "var(--fg-muted)" }}>
           {p.legsText.map((t) => (
             <li key={t}>{t}</li>
           ))}
@@ -150,39 +150,39 @@ export default function PayoffExplorer({ preset, caption, start }: Props) {
 
           {yTicks.map((t) => (
             <g key={t}>
-              <line x1={M.l} x2={w - M.r} y1={y(t)} y2={y(t)} stroke="#34322a" strokeWidth={1} />
-              <text x={M.l - 8} y={y(t) + 4} textAnchor="end" fontSize={11} fill="#b4ae9a" fontFamily="var(--font-mono)">
+              <line x1={M.l} x2={w - M.r} y1={y(t)} y2={y(t)} stroke="#28313c" strokeWidth={1} />
+              <text x={M.l - 8} y={y(t) + 4} textAnchor="end" fontSize={11} fill="#94a0af" fontFamily="var(--font-mono)">
                 {money(t)}
               </text>
             </g>
           ))}
           {xTicks.map((t) => (
-            <text key={t} x={x(t)} y={h - 9} textAnchor="middle" fontSize={11} fill="#b4ae9a" fontFamily="var(--font-mono)">
+            <text key={t} x={x(t)} y={h - 9} textAnchor="middle" fontSize={11} fill="#94a0af" fontFamily="var(--font-mono)">
               {t % 1 === 0 ? t : t.toFixed(1)}
             </text>
           ))}
 
-          <path d={areaPath} fill="#4fd694" fillOpacity={0.2} clipPath={`url(#${uid}-up)`} />
-          <path d={areaPath} fill="#ff7350" fillOpacity={0.2} clipPath={`url(#${uid}-dn)`} />
-          <line x1={M.l} x2={w - M.r} y1={zeroY} y2={zeroY} stroke="#f3f0e6" strokeWidth={1.5} />
+          <path d={areaPath} fill="#2fd27d" fillOpacity={0.2} clipPath={`url(#${uid}-up)`} />
+          <path d={areaPath} fill="#ff5c61" fillOpacity={0.2} clipPath={`url(#${uid}-dn)`} />
+          <line x1={M.l} x2={w - M.r} y1={zeroY} y2={zeroY} stroke="#eef1f5" strokeWidth={1.5} />
 
           {/* entry price */}
-          <line x1={x(p.S0)} x2={x(p.S0)} y1={M.t} y2={h - M.b} stroke="#b4ae9a" strokeWidth={1} strokeDasharray="2 4" />
-          <text x={x(p.S0) + 5} y={M.t + 10} fontSize={10} fill="#b4ae9a" fontFamily="var(--font-mono)">
+          <line x1={x(p.S0)} x2={x(p.S0)} y1={M.t} y2={h - M.b} stroke="#94a0af" strokeWidth={1} strokeDasharray="2 4" />
+          <text x={x(p.S0) + 5} y={M.t + 10} fontSize={10} fill="#94a0af" fontFamily="var(--font-mono)">
             entry
           </text>
 
-          <path d={linePath(expiryPts)} fill="none" stroke="#b4ae9a" strokeWidth={2} strokeDasharray="6 4" />
-          <path d={linePath(todayPts)} fill="none" stroke="#f3f0e6" strokeWidth={2.75} strokeLinejoin="round" />
+          <path d={linePath(expiryPts)} fill="none" stroke="#94a0af" strokeWidth={2} strokeDasharray="6 4" />
+          <path d={linePath(todayPts)} fill="none" stroke="#eef1f5" strokeWidth={2.75} strokeLinejoin="round" />
 
           {summary.breakevens.map((b) => (
             <g key={b}>
-              <path d={`M${x(b) - 5},${zeroY + 10} L${x(b) + 5},${zeroY + 10} L${x(b)},${zeroY + 2} Z`} fill="#f3f0e6" />
+              <path d={`M${x(b) - 5},${zeroY + 10} L${x(b) + 5},${zeroY + 10} L${x(b)},${zeroY + 2} Z`} fill="#eef1f5" />
             </g>
           ))}
 
           {/* draggable handle */}
-          <line x1={handleX} x2={handleX} y1={M.t} y2={h - M.b} stroke={good ? "#4fd694" : "#ff7350"} strokeWidth={1.5} />
+          <line x1={handleX} x2={handleX} y1={M.t} y2={h - M.b} stroke={good ? "#2fd27d" : "#ff5c61"} strokeWidth={1.5} />
           <g
             role="slider"
             tabIndex={0}
@@ -193,28 +193,28 @@ export default function PayoffExplorer({ preset, caption, start }: Props) {
             aria-valuetext={`${S.toFixed(2)} dollars, profit and loss ${money(pnlNow)}`}
             onKeyDown={onKey}
             style={{ outline: "none" }}
-            className="focus-visible:[&>rect]:stroke-[#ff7350]"
+            className="focus-visible:[&>rect]:stroke-[#ffb224]"
           >
             <rect x={handleX - 14} y={handleY - 14} width={28} height={28} fill="transparent" stroke="transparent" strokeWidth={2} />
-            <circle cx={handleX} cy={handleY} r={7} fill={good ? "#4fd694" : "#ff7350"} stroke="#14130f" strokeWidth={2.5} />
+            <circle cx={handleX} cy={handleY} r={7} fill={good ? "#2fd27d" : "#ff5c61"} stroke="#090c10" strokeWidth={2.5} />
           </g>
         </svg>
       </div>
 
-      <div className="mt-2 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[11px]" style={{ color: "var(--on-ink-muted)" }}>
+      <div className="mt-2 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[11px]" style={{ color: "var(--fg-muted)" }}>
         <span>
-          <svg width="22" height="8" aria-hidden className="inline align-middle"><line x1="0" x2="22" y1="4" y2="4" stroke="#f3f0e6" strokeWidth="3" /></svg> today (model)
+          <svg width="22" height="8" aria-hidden className="inline align-middle"><line x1="0" x2="22" y1="4" y2="4" stroke="#eef1f5" strokeWidth="3" /></svg> today (model)
         </span>
         <span>
-          <svg width="22" height="8" aria-hidden className="inline align-middle"><line x1="0" x2="22" y1="4" y2="4" stroke="#b4ae9a" strokeWidth="2" strokeDasharray="5 3" /></svg> at expiry
+          <svg width="22" height="8" aria-hidden className="inline align-middle"><line x1="0" x2="22" y1="4" y2="4" stroke="#94a0af" strokeWidth="2" strokeDasharray="5 3" /></svg> at expiry
         </span>
         <span>
-          <svg width="10" height="10" aria-hidden className="inline align-middle"><path d="M0,10 L10,10 L5,1 Z" fill="#f3f0e6" /></svg> breakeven
+          <svg width="10" height="10" aria-hidden className="inline align-middle"><path d="M0,10 L10,10 L5,1 Z" fill="#eef1f5" /></svg> breakeven
         </span>
       </div>
 
       {/* readout */}
-      <dl className="mt-5 grid grid-cols-2 gap-px bg-ink-3 font-mono text-sm sm:grid-cols-4" style={{ background: "var(--ink-3)" }}>
+      <dl className="mt-5 grid grid-cols-2 gap-px bg-line font-mono text-sm sm:grid-cols-4" style={{ background: "var(--line)" }}>
         <Cell k="P&L now" v={money(pnlNow, { sign: true })} tone={good ? "gain" : "loss"} big />
         <Cell k="P&L at expiry here" v={money(pnlExpiry, { sign: true })} tone={pnlExpiry >= 0 ? "gain" : "loss"} big />
         <Cell k="Entry" v={entryTxt} />
@@ -247,24 +247,24 @@ export default function PayoffExplorer({ preset, caption, start }: Props) {
             setSigma(init.sigma);
           }}
           disabled={!dirty}
-          className="t100 border-2 border-paper px-3 py-2 font-mono text-xs font-semibold text-paper hover:bg-paper hover:text-ink disabled:opacity-40 disabled:hover:bg-transparent disabled:hover:text-paper"
+          className="t100 border-2 border-fg px-3 py-2 font-mono text-xs font-semibold text-fg hover:bg-base hover:text-fg disabled:opacity-40 disabled:hover:bg-transparent disabled:hover:text-fg"
         >
           Reset
         </button>
         <button
           type="button"
           onClick={() => setDays(0)}
-          className="t100 border-2 border-paper px-3 py-2 font-mono text-xs font-semibold text-paper hover:bg-paper hover:text-ink"
+          className="t100 border-2 border-fg px-3 py-2 font-mono text-xs font-semibold text-fg hover:bg-base hover:text-fg"
         >
           Jump to expiry
         </button>
-        <p className="max-w-md font-mono text-[11px] leading-relaxed" style={{ color: "var(--on-ink-muted)" }}>
+        <p className="max-w-md font-mono text-[11px] leading-relaxed" style={{ color: "var(--fg-muted)" }}>
           Theoretical mid prices, flat IV, 4% rate, no dividends, no fees. Real fills are worse.
         </p>
       </div>
 
       {caption ? (
-        <figcaption className="mt-5 border-t border-ink-3 pt-4 font-serif text-[15px] leading-relaxed" style={{ borderColor: "var(--ink-3)", color: "var(--on-ink-muted)" }}>
+        <figcaption className="mt-5 border-t border-line pt-4 text-[15px] leading-relaxed" style={{ borderColor: "var(--line)", color: "var(--fg-muted)" }}>
           {caption}
         </figcaption>
       ) : null}
@@ -273,9 +273,9 @@ export default function PayoffExplorer({ preset, caption, start }: Props) {
 }
 
 function Cell({ k, v, tone, big }: { k: string; v: string; tone?: "gain" | "loss"; big?: boolean }) {
-  const color = tone === "gain" ? "var(--gain-bright)" : tone === "loss" ? "var(--accent-bright)" : "var(--on-ink)";
+  const color = tone === "gain" ? "var(--gain)" : tone === "loss" ? "var(--loss)" : "var(--fg)";
   return (
-    <div className="p-3" style={{ background: "var(--ink)" }}>
+    <div className="p-3" style={{ background: "var(--deep)" }}>
       <dt className="label">{k}</dt>
       <dd className={big ? "mt-1 text-lg font-bold" : "mt-1 text-[13px] font-semibold"} style={{ color }}>
         {v}
@@ -291,7 +291,7 @@ function Control({ id, label, value, children }: { id: string; label: string; va
         <label htmlFor={id} className="label">
           {label}
         </label>
-        <span className="text-sm font-semibold text-paper">{value}</span>
+        <span className="text-sm font-semibold text-fg">{value}</span>
       </div>
       {children}
     </div>

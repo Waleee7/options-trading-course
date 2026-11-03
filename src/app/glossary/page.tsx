@@ -8,11 +8,13 @@ export const metadata: Metadata = {
 
 export default function GlossaryPage() {
   return (
-    <div className="mx-auto max-w-5xl px-4 pb-10 pt-10 sm:px-6 sm:pt-16">
+    <div className="mx-auto max-w-5xl px-4 pb-10 pt-8 sm:px-6 sm:pt-12">
+      <div className="reading p-6 sm:p-10">
       <p className="label">Glossary</p>
       <h1 className="display mt-3 text-5xl sm:text-7xl">The vocabulary, without the fog.</h1>
       <div className="mt-10">
         <GlossaryBrowser />
+      </div>
       </div>
     </div>
   );

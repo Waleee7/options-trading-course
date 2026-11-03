@@ -8,14 +8,16 @@ export const metadata: Metadata = {
 
 export default function LabPage() {
   return (
-    <div className="mx-auto max-w-6xl px-4 pb-10 pt-10 sm:px-6 sm:pt-16">
+    <div className="mx-auto max-w-6xl px-4 pb-10 pt-8 sm:px-6 sm:pt-12">
+      <div className="reading p-6 sm:p-10">
       <p className="label">Strategy lab</p>
       <h1 className="display mt-3 text-5xl sm:text-7xl">Break the trade before it costs you.</h1>
       <p className="mt-5 max-w-2xl text-xl leading-snug">
         Ten structures, one Black-Scholes engine. Drag the price. Scrub time. Move implied volatility. Watch what the diagram in a textbook hides.
       </p>
-      <div className="mt-12 border-t-2 border-ink pt-8">
+      <div className="mt-12 border-t-2 border-line-strong pt-8">
         <LabClient />
+      </div>
       </div>
     </div>
   );
