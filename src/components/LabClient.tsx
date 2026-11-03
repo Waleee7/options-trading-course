@@ -1,0 +1,45 @@
+"use client";
+
+import { useState } from "react";
+import { PRESETS, type PresetId } from "@/lib/options/strategies";
+import PayoffExplorer from "./charts/PayoffExplorer";
+
+const GROUPS: Array<{ title: string; ids: PresetId[] }> = [
+  { title: "Single options", ids: ["long-call", "long-put", "earnings-call"] },
+  { title: "Verticals", ids: ["bull-call-spread", "bear-put-spread", "bull-put-spread", "bear-call-spread"] },
+  { title: "Income and range", ids: ["covered-call", "cash-secured-put", "iron-condor"] },
+];
+
+export default function LabClient() {
+  const [id, setId] = useState<PresetId>("iron-condor");
+  const p = PRESETS[id];
+  return (
+    <div className="grid gap-8 lg:grid-cols-[14rem_1fr]">
+      <nav aria-label="Strategies" className="grid content-start gap-5">
+        {GROUPS.map((g) => (
+          <div key={g.title}>
+            <p className="label">{g.title}</p>
+            <ul className="mt-2 grid gap-1">
+              {g.ids.map((x) => (
+                <li key={x}>
+                  <button
+                    type="button"
+                    aria-pressed={id === x}
+                    onClick={() => setId(x)}
+                    className={`t100 mono w-full border-2 border-ink px-3 py-2 text-left text-xs font-semibold ${id === x ? "bg-ink text-paper" : "text-ink hover:bg-paper-2"}`}
+                  >
+                    {PRESETS[x].name}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </nav>
+      <div>
+        <p className="max-w-2xl text-lg leading-snug">{p.blurb}</p>
+        <PayoffExplorer key={id} preset={id} />
+      </div>
+    </div>
+  );
+}

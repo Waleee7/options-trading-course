@@ -1,40 +1,51 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import ClientProviders from "@/components/ClientProviders";
+import type { Metadata, Viewport } from "next";
+import { JetBrains_Mono, Newsreader } from "next/font/google";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
+import { SITE_URL } from "@/data/site";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const serif = Newsreader({
+  subsets: ["latin"],
+  variable: "--font-newsreader",
+  style: ["normal", "italic"],
+  axes: ["opsz"],
+  display: "swap",
+});
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: "Options Lab — Interactive Options Trading Course",
-  description: "Master options trading from zero to strategist with interactive lessons, quizzes, and chart challenges.",
+  metadataBase: new URL(SITE_URL),
+  title: { default: "Options Lab: the honest options course", template: "%s | Options Lab" },
+  description:
+    "A free options course that starts with the truth: most people lose money. Real mechanics, Greeks, implied volatility, defined-risk strategies with interactive Black-Scholes payoff charts, and risk management.",
+  openGraph: {
+    title: "Options Lab: the honest options course",
+    description: "Most people lose money trading options. This free course starts there.",
+    url: SITE_URL,
+    type: "website",
+  },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export const viewport: Viewport = {
+  themeColor: "#14130f",
+  width: "device-width",
+  initialScale: 1,
+};
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${inter.className} antialiased min-h-screen`}>
-        <ClientProviders>
-          {children}
-          <footer className="relative z-10 pb-12 text-center">
-            <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-              Built by{" "}
-              <a
-                href="https://josh-dare.vercel.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-colors hover:brightness-110"
-                style={{ color: "var(--text-secondary)" }}
-              >
-                Akinwale Dare
-              </a>
-            </p>
-          </footer>
-        </ClientProviders>
+    <html lang="en" className={`${serif.variable} ${mono.variable}`}>
+      <body>
+        <a href="#main" className="skip-link">Skip to content</a>
+        <SiteHeader />
+        <main id="main">{children}</main>
+        <SiteFooter />
       </body>
     </html>
   );
