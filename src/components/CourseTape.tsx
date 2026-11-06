@@ -48,7 +48,7 @@ export default function CourseTape() {
   const doubled = [...TAPE_ITEMS, ...TAPE_ITEMS];
   return (
     <div className="tape border-b border-line bg-deep" role="region" aria-label="Course tape">
-      <div className="mx-auto flex h-8 max-w-6xl items-center gap-3 px-4 sm:px-6">
+      <div className="mx-auto flex min-h-8 max-w-6xl items-center gap-3 px-4 sm:px-6">
         <span className="mono flex-none bg-accent px-2 py-0.5 text-[10px] font-bold tracking-widest text-accent-ink">TAPE</span>
         {on ? (
           <div className="min-w-0 flex-1 overflow-hidden" aria-hidden>
@@ -67,7 +67,7 @@ export default function CourseTape() {
           type="button"
           aria-pressed={on}
           onClick={() => set(!on)}
-          className="t100 mono flex-none border border-line-strong px-2 py-0.5 text-[10px] font-semibold text-fg hover:bg-raised"
+          className="t100 mono flex min-h-6 flex-none items-center border border-line-strong px-2 py-0.5 text-[10px] font-semibold text-fg hover:bg-raised"
         >
           {on ? "Hide tape" : "Show tape"}
         </button>

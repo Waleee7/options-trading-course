@@ -126,7 +126,7 @@ export default function PayoffExplorer({ preset, caption, start }: Props) {
           width={w}
           height={h}
           viewBox={`0 0 ${w} ${h}`}
-          role="img"
+          role="group"
           aria-label={label}
           className="block max-w-full"
           onPointerDown={(e) => {
@@ -247,14 +247,14 @@ export default function PayoffExplorer({ preset, caption, start }: Props) {
             setSigma(init.sigma);
           }}
           disabled={!dirty}
-          className="t100 border-2 border-fg px-3 py-2 font-mono text-xs font-semibold text-fg hover:bg-base hover:text-fg disabled:opacity-40 disabled:hover:bg-transparent disabled:hover:text-fg"
+          className="t100 border-2 border-fg px-3 py-2 font-mono text-xs font-semibold text-fg hover:bg-canvas hover:text-fg disabled:opacity-40 disabled:hover:bg-transparent disabled:hover:text-fg"
         >
           Reset
         </button>
         <button
           type="button"
           onClick={() => setDays(0)}
-          className="t100 border-2 border-fg px-3 py-2 font-mono text-xs font-semibold text-fg hover:bg-base hover:text-fg"
+          className="t100 border-2 border-fg px-3 py-2 font-mono text-xs font-semibold text-fg hover:bg-canvas hover:text-fg"
         >
           Jump to expiry
         </button>

@@ -1,20 +1,20 @@
 "use client";
 
 import { useId, useState } from "react";
+import { parseAmount, sizeTrade } from "@/lib/sizing";
 import { money } from "./charts/scale";
-
-export function sizeTrade(account: number, riskPct: number, maxLossPerContract: number) {
-  const budget = (account * riskPct) / 100;
-  const contracts = maxLossPerContract > 0 ? Math.floor(budget / maxLossPerContract) : 0;
-  const atRisk = contracts * maxLossPerContract;
-  return { budget, contracts, atRisk, pctOfAccount: account > 0 ? (atRisk / account) * 100 : 0 };
-}
 
 export default function SizingCalculator() {
   const uid = useId();
-  const [account, setAccount] = useState(50000);
-  const [riskPct, setRiskPct] = useState(1);
-  const [loss, setLoss] = useState(306);
+  const [accountText, setAccount] = useState("50000");
+  const [riskText, setRisk] = useState("1");
+  const [lossText, setLoss] = useState("306");
+
+  // the fields keep what was typed, so clearing one leaves it empty instead of a stuck 0
+  const account = parseAmount(accountText);
+  const riskPct = parseAmount(riskText, 100);
+  const loss = parseAmount(lossText);
+  const incomplete = account === 0 || riskPct === 0 || loss === 0;
 
   const r = sizeTrade(account, riskPct, loss);
   const streak = Math.pow(1 - riskPct / 100, 10) * 100;
@@ -29,15 +29,15 @@ export default function SizingCalculator() {
       <div className="mt-4 grid gap-4 sm:grid-cols-3">
         <label className="block">
           <span className="label">Account ($)</span>
-          <input className={field} type="number" inputMode="decimal" min={0} step={1000} value={account} onChange={(e) => setAccount(Math.max(0, Number(e.target.value)))} />
+          <input className={field} type="number" inputMode="decimal" min={0} step={1000} value={accountText} onChange={(e) => setAccount(e.target.value)} />
         </label>
         <label className="block">
           <span className="label">Risk per trade (%)</span>
-          <input className={field} type="number" inputMode="decimal" min={0.1} max={100} step={0.25} value={riskPct} onChange={(e) => setRiskPct(Math.min(100, Math.max(0, Number(e.target.value))))} />
+          <input className={field} type="number" inputMode="decimal" min={0.1} max={100} step={0.25} value={riskText} onChange={(e) => setRisk(e.target.value)} />
         </label>
         <label className="block">
           <span className="label">Max loss per contract ($)</span>
-          <input className={field} type="number" inputMode="decimal" min={1} step={10} value={loss} onChange={(e) => setLoss(Math.max(0, Number(e.target.value)))} />
+          <input className={field} type="number" inputMode="decimal" min={1} step={10} value={lossText} onChange={(e) => setLoss(e.target.value)} />
         </label>
       </div>
       <dl className="mt-5 grid grid-cols-2 gap-px sm:grid-cols-4" style={{ background: "var(--line)" }} aria-live="polite">
@@ -47,15 +47,18 @@ export default function SizingCalculator() {
           ["Dollars at risk", money(r.atRisk)],
           ["10 straight losses leave", `${streak.toFixed(1)}%`],
         ].map(([k, v]) => (
-          <div key={k} className="p-3" style={{ background: "var(--deep)" }}>
+          <div key={k} className="min-w-0 p-3" style={{ background: "var(--deep)" }}>
             <dt className="label">{k}</dt>
-            <dd className="mono mt-1 text-lg font-bold" style={{ color: k === "Contracts" && r.contracts === 0 ? "var(--accent)" : "var(--fg)" }}>
+            <dd className="mono mt-1 break-words text-lg font-bold" style={{ color: k === "Contracts" && r.contracts === 0 ? "var(--accent)" : "var(--fg)" }}>
               {v}
             </dd>
           </div>
         ))}
       </dl>
-      {r.contracts === 0 && loss > 0 && (
+      {incomplete && (
+        <p className="mono mt-4 text-sm text-fg-muted">Enter your account size, risk and max loss above to see how many contracts fit.</p>
+      )}
+      {!incomplete && r.contracts === 0 && (
         <p className="mono mt-4 text-sm" style={{ color: "var(--accent)" }}>
           Zero contracts fit. The trade is too large for this plan. Narrow it, or skip it. Do not round up.
         </p>

@@ -33,7 +33,7 @@ export default function CompletePanel() {
           ["Challenge", `${right} / ${scenarios.length}`],
           ["Streak", `${p.currentStreak}d`],
         ].map(([k, v]) => (
-          <div key={k} className="bg-base p-4">
+          <div key={k} className="bg-canvas p-4">
             <p className="label">{k}</p>
             <p className="mono mt-1 text-2xl font-bold text-fg">{v}</p>
           </div>
@@ -63,7 +63,7 @@ export default function CompletePanel() {
         {BADGES.map((b) => {
           const on = b.check(p);
           return (
-            <li key={b.id} className="flex items-center gap-4 border-2 p-3" style={{ borderColor: on ? "var(--accent)" : "var(--line)", opacity: on ? 1 : 0.7 }}>
+            <li key={b.id} className="flex items-center gap-4 border-2 p-3" style={{ borderColor: on ? "var(--accent)" : "var(--line)" }}>
               <span className="mono grid h-12 w-12 flex-none place-items-center text-sm font-bold" style={{ background: on ? "var(--accent)" : "var(--raised)", color: on ? "var(--accent-ink)" : "var(--fg-muted)" }}>
                 {b.mark}
               </span>

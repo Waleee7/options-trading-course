@@ -84,7 +84,7 @@ export default function GreeksExplorer({ S0, sigma: sigma0, dtes, focus = "delta
             type="button"
             aria-pressed={which === k}
             onClick={() => setWhich(k)}
-            className={`t100 border-2 px-3 py-2 font-mono text-xs font-semibold ${which === k ? "border-fg bg-base text-fg" : "border-line text-fg hover:border-fg"}`}
+            className={`t100 border-2 px-3 py-2 font-mono text-xs font-semibold ${which === k ? "border-fg bg-canvas text-fg" : "border-line text-fg hover:border-fg"}`}
             style={which === k ? undefined : { borderColor: "var(--line)" }}
           >
             {META[k].name}
@@ -97,7 +97,7 @@ export default function GreeksExplorer({ S0, sigma: sigma0, dtes, focus = "delta
             type="button"
             aria-pressed={kind === k}
             onClick={() => setKind(k)}
-            className={`t100 border-2 px-3 py-2 font-mono text-xs font-semibold ${kind === k ? "border-fg bg-base text-fg" : "border-line text-fg hover:border-fg"}`}
+            className={`t100 border-2 px-3 py-2 font-mono text-xs font-semibold ${kind === k ? "border-fg bg-canvas text-fg" : "border-line text-fg hover:border-fg"}`}
             style={kind === k ? undefined : { borderColor: "var(--line)" }}
           >
             {k === "call" ? "Call" : "Put"}

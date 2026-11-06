@@ -25,12 +25,13 @@ export const EMPTY_PROGRESS: UserProgress = {
   lastActivity: "",
 };
 
-const dayKey = (d: Date) => d.toISOString().slice(0, 10);
+/** The learner's own calendar day, not UTC's, so evening study doesn't land on "tomorrow". */
+const dayKey = (d: Date) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 
 function bumpStreak(p: UserProgress, now: Date): Pick<UserProgress, "currentStreak" | "lastActivity"> {
   const today = dayKey(now);
   if (p.lastActivity === today) return { currentStreak: p.currentStreak, lastActivity: today };
-  const yesterday = dayKey(new Date(now.getTime() - 86_400_000));
+  const yesterday = dayKey(new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1));
   return { currentStreak: p.lastActivity === yesterday ? p.currentStreak + 1 : 1, lastActivity: today };
 }
 
@@ -65,11 +66,25 @@ export function applyChallenge(p: UserProgress, id: string, correct: boolean, xp
   };
 }
 
-function parse(raw: string | null): UserProgress {
+const count = (v: unknown) => (typeof v === "number" && Number.isFinite(v) && v > 0 ? v : 0);
+const isRecord = (v: unknown): v is Record<string, unknown> => typeof v === "object" && v !== null && !Array.isArray(v);
+const scores = (v: unknown) => Object.fromEntries(Object.entries(isRecord(v) ? v : {}).filter(([, n]) => typeof n === "number" && Number.isFinite(n))) as Record<string, number>;
+
+/** Saves can be old, edited or damaged. Keep what is usable and never let the rest reach the UI. */
+export function parseProgress(raw: string | null): UserProgress {
   if (!raw) return EMPTY_PROGRESS;
   try {
-    const v = JSON.parse(raw) as Partial<UserProgress>;
-    return { ...EMPTY_PROGRESS, ...v };
+    const v: unknown = JSON.parse(raw);
+    if (!isRecord(v)) return EMPTY_PROGRESS;
+    return {
+      completedModules: Array.isArray(v.completedModules) ? v.completedModules.filter((m): m is string => typeof m === "string") : [],
+      quizScores: scores(v.quizScores),
+      moduleXp: scores(v.moduleXp),
+      challengeResults: Object.fromEntries(Object.entries(isRecord(v.challengeResults) ? v.challengeResults : {}).filter(([, b]) => typeof b === "boolean")) as Record<string, boolean>,
+      totalXp: count(v.totalXp),
+      currentStreak: count(v.currentStreak),
+      lastActivity: typeof v.lastActivity === "string" ? v.lastActivity : "",
+    };
   } catch {
     return EMPTY_PROGRESS;
   }
@@ -89,7 +104,7 @@ function read(): UserProgress {
   }
   if (raw !== cacheRaw) {
     cacheRaw = raw;
-    cacheVal = parse(raw);
+    cacheVal = parseProgress(raw);
   }
   return cacheVal;
 }

@@ -8,7 +8,7 @@ export default function SoundToggle() {
     <button
       type="button"
       aria-pressed={!muted}
-      aria-label={muted ? "Sound and haptics are off. Turn on" : "Sound and haptics are on. Mute"}
+      aria-label={muted ? "Sound off. Turn sound and haptics on" : "Sound on. Mute sound and haptics"}
       onClick={() => {
         const nextMuted = !muted;
         setMuted(nextMuted);

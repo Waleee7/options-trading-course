@@ -69,6 +69,7 @@ Checks:
 
 ```bash
 npm test            # Vitest: Black-Scholes, Greeks, strategy payoffs, content integrity
+npm run test:e2e    # Browser tests on Chromium, WebKit and Firefox (run npm run build first)
 npm run lint
 npm run typecheck
 npm run build

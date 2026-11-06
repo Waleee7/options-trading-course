@@ -27,7 +27,7 @@
 }
 
 @theme inline {
-  --color-base: var(--bg);
+  --color-canvas: var(--bg);
   --color-surface: var(--surface);
   --color-raised: var(--raised);
   --color-deep: var(--deep);
@@ -158,6 +158,8 @@ body {
   text-decoration-color: var(--accent);
   text-decoration-thickness: 2px;
   text-underline-offset: 3px;
+  /* a bigger tap area without moving any text */
+  padding-block: 4px;
   transition: all 100ms ease-out;
 }
 .link:hover {
@@ -199,6 +201,15 @@ body {
   background: var(--surface);
   border: 1px solid var(--line);
   color: var(--fg-2);
+}
+
+/* Long words wrap rather than push the page sideways when someone enlarges their text.
+   Tables scroll inside .ledger-wrap instead, so their columns keep their shape. */
+main {
+  overflow-wrap: anywhere;
+}
+.ledger {
+  overflow-wrap: normal;
 }
 
 /* ---------- lesson prose ---------- */

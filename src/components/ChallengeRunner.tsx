@@ -57,11 +57,11 @@ export default function ChallengeRunner() {
       </div>
       <h2 className="display mt-3 text-4xl sm:text-5xl">{s.title}</h2>
       <dl className="mt-6 grid gap-px border-2 border-line-strong bg-deep sm:grid-cols-2">
-        <div className="bg-base p-4">
+        <div className="bg-canvas p-4">
           <dt className="label">What you did</dt>
           <dd className="mt-1 text-[17px] leading-snug">{s.setup}</dd>
         </div>
-        <div className="bg-base p-4">
+        <div className="bg-canvas p-4">
           <dt className="label">What happened</dt>
           <dd className="mt-1 text-[17px] leading-snug">{s.event}</dd>
         </div>

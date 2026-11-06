@@ -29,7 +29,7 @@ export default function GlossaryBrowser() {
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="theta, breakeven, assignment"
-            className="mono mt-1 w-full border-2 border-line-strong bg-base px-3 py-2.5 text-base text-fg placeholder:text-fg-muted"
+            className="mono mt-1 w-full border-2 border-line-strong bg-canvas px-3 py-2.5 text-base text-fg placeholder:text-fg-muted"
           />
         </div>
         <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by category">

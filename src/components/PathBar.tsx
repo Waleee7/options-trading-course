@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import { modules } from "@/data/modules";
 import { useProgress } from "@/lib/progress";
 
@@ -16,7 +17,8 @@ export default function PathBar({ current }: { current: number }) {
         </span>
         <span>{Math.round((done / modules.length) * 100)}% of the course</span>
       </p>
-      <ol className="grid gap-[3px]" style={{ gridTemplateColumns: `repeat(${modules.length}, minmax(0, 1fr))` }}>
+      {/* two rows on a phone, so each step stays big enough to tap */}
+      <ol className="grid grid-cols-8 gap-x-[3px] sm:grid-cols-[repeat(var(--steps),minmax(0,1fr))]" style={{ "--steps": modules.length } as CSSProperties}>
         {modules.map((m, i) => {
           const isDone = p.completedModules.includes(m.id);
           const isCur = i === current;
@@ -27,12 +29,16 @@ export default function PathBar({ current }: { current: number }) {
                 title={`${i + 1}. ${m.title}`}
                 aria-label={`${i + 1}. ${m.title}${isDone ? ", finished" : ""}${isCur ? ", you are here" : ""}`}
                 aria-current={isCur ? "step" : undefined}
-                className="t100 block h-3"
-                style={{
-                  background: isDone ? "var(--accent)" : isCur ? "var(--bg)" : "var(--line)",
-                  border: isCur ? "2px solid var(--accent)" : "none",
-                }}
-              />
+                className="t100 block py-1.5"
+              >
+                <span
+                  className="block h-3"
+                  style={{
+                    background: isDone ? "var(--accent)" : isCur ? "var(--bg)" : "var(--line)",
+                    border: isCur ? "2px solid var(--accent)" : "none",
+                  }}
+                />
+              </Link>
             </li>
           );
         })}
