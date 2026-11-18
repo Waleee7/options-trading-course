@@ -86,12 +86,44 @@ npm run build
 - **Feedback**: soft haptics (`navigator.vibrate`) and very quiet WebAudio ticks on answer select, correct and wrong, XP gain, and module complete. One mute toggle in the header, remembered in `localStorage`.
 - **Learner path**: a "Continue" button and an Up next strip that always point at the first unfinished lesson, a 16-step path bar on every lesson, a scroll-linked reading bar, and a quiz after each module. An optional "course tape" carries course reminders only, with no prices.
 
+## Architecture
+
+```mermaid
+flowchart LR
+  DATA["src/data<br/>modules · glossary · challenges · receipts"] --> PAGES
+  ENGINE["src/lib/options<br/>Black-Scholes, Greeks, IV, strategy payoffs"] --> CHARTS["src/components/charts<br/>hand-built SVG payoff charts"]
+  ENGINE --> PAGES
+  CHARTS --> PAGES["Static pages (App Router)<br/>/ · /course/[moduleId] · /quiz/[moduleId]<br/>/lab · /challenge · /glossary · /complete"]
+  PAGES --> BROWSER["Browser<br/>progress, XP and sound setting in localStorage"]
+  TESTS["Vitest: engine, content integrity, sizing, progress"] -.checks.-> ENGINE
+  TESTS -.checks.-> DATA
+```
+
+Every page is generated at build time; there is no server code and no database. The same engine draws the charts, writes the worked-example numbers and scores the challenge, and the tests hold all three to it.
+
+## Tests
+
+Last run on 2026-11-17, against a local production build:
+
+- **113 of 113 Vitest tests passed** in 10 files: Black-Scholes and Greeks, strategy payoffs, chart scales, sizing, progress, feedback, design tokens and content integrity.
+- **1,720 of 1,720 browser checks passed** (`npm run test:e2e`): every one of the 36 routes on Chromium at three screen sizes, with full quiz flows, regression cases and axe accessibility scans, then WebKit at phone size and Firefox on desktop.
+- `tsc --noEmit` and ESLint were clean.
+
 ## Tech stack
 
 Next.js 16 (App Router, static generation), React 19, TypeScript (strict), Tailwind CSS 4, Vitest. No runtime chart, animation, or icon libraries.
 
+## Status
+
+Live at [optionstradingcourse.vercel.app](https://optionstradingcourse.vercel.app). Vercel deploys `main` to production. The Receipts section ships empty on purpose.
+
+## Roadmap
+
+- Fill the Receipts section only with real, dated screenshots.
+- More challenge scenarios, each checked against the pricing engine in the tests.
+
 ## Credit
 
-Built by [Akinwale Dare](https://josh-dare.vercel.app).
+Built by [Akinwale Dare](https://dare-os.vercel.app). The two statistics on the site come from the SEBI study and the Chague, De-Losso and Giovannetti paper linked above.
 
-Licensed under the terms in [LICENSE](LICENSE).
+Licensed under the terms in [LICENSE](LICENSE) (MIT).
